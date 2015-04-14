@@ -1,22 +1,21 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 import model.Model;
 import controller.BuilderPanelClose;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JSpinner;
-import javax.swing.JSlider;
-import javax.swing.JMenuItem;
-import javax.swing.JMenu;
-import javax.swing.ImageIcon;
-import javax.swing.JTextPane;
-import java.awt.Color;
-import javax.swing.JMenuBar;
 
 public class BuilderPanel extends JPanel {
 
@@ -113,15 +112,12 @@ public class BuilderPanel extends JPanel {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmSave = new JMenuItem("Save");
-		mntmSave.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		mnFile.add(mntmSave);
 		
 		JMenuItem mntmCreateNewLeve = new JMenuItem("Create New Level");
-		mntmCreateNewLeve.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
 		mnFile.add(mntmCreateNewLeve);
 		
 		JMenuItem mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
-		mntmEditExistingLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 		mnFile.add(mntmEditExistingLevel);
 		
 		JMenu mnNewMenu = new JMenu("Edit");
