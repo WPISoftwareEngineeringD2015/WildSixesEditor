@@ -12,6 +12,7 @@ public class Application extends JFrame{
 	private static final long serialVersionUID = 8783797056760495237L;
 	Model model;
 	BuilderPanel panel;
+	LevelTypeView typePanel;
 	
 	public Application(Model m) {
 		super("Wild Sixes Level Builder");
@@ -23,6 +24,10 @@ public class Application extends JFrame{
 	
 	public JPanel getBuilderPanel() {
 		return panel;
+	}
+	
+	public JPanel getTypePanel() {
+		return typePanel;
 	}
 	
 }

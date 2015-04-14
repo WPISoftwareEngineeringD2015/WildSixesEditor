@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -16,6 +17,7 @@ import javax.swing.JTextPane;
 
 import model.Model;
 import controller.BuilderPanelClose;
+import controller.ChangeLevelTypeController;
 
 public class BuilderPanel extends JPanel {
 
@@ -32,12 +34,14 @@ public class BuilderPanel extends JPanel {
 	public BuilderPanel(Model m) {
 		this.model = m;
 		BuilderPanelClose closeController = new BuilderPanelClose(model, this);
+		ChangeLevelTypeController editLevelType = new ChangeLevelTypeController(model, this);
 		setLayout(null);
 		
 		btnX = new JButton("X");
 		btnX.setBounds(707, 33, 45, 23);
 		add(btnX);
 		btnX.addActionListener(closeController);
+		
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.setBounds(10, 618, 89, 23);
@@ -112,12 +116,15 @@ public class BuilderPanel extends JPanel {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmSave = new JMenuItem("Save");
+		mntmSave.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		mnFile.add(mntmSave);
 		
 		JMenuItem mntmCreateNewLeve = new JMenuItem("Create New Level");
+		mntmCreateNewLeve.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
 		mnFile.add(mntmCreateNewLeve);
 		
 		JMenuItem mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
+		mntmEditExistingLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 		mnFile.add(mntmEditExistingLevel);
 		
 		JMenu mnNewMenu = new JMenu("Edit");
@@ -125,6 +132,7 @@ public class BuilderPanel extends JPanel {
 		
 		JMenuItem mntmEditLevelType = new JMenuItem("Edit Level Type");
 		mnNewMenu.add(mntmEditLevelType);
+		mntmEditLevelType.addActionListener(editLevelType);
 		
 		JLabel lblAddableComponents = new JLabel("Addable Components");
 		lblAddableComponents.setBounds(582, 209, 150, 14);

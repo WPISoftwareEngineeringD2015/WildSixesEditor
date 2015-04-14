@@ -22,6 +22,7 @@ public class LevelTypeView extends JPanel{
 		
 		JButton btnBack = new JButton("Back");
 		
+		
 		JButton btnPuzzle = new JButton("Puzzle");
 		
 		JButton btnLightning = new JButton("Lightning");
