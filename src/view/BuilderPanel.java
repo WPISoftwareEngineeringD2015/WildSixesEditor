@@ -18,6 +18,7 @@ public class BuilderPanel extends JPanel {
 
 	Model model;
 	JButton btnX;
+	JLabel levelTypeLabel;
 	
 	/**
 	 * 
@@ -84,9 +85,9 @@ public class BuilderPanel extends JPanel {
 		lblNumberOfMoves.setBounds(569, 161, 174, 14);
 		add(lblNumberOfMoves);
 		
-		JLabel lblTypePuzzle = new JLabel("Type: Puzzle");
-		lblTypePuzzle.setBounds(10, 34, 74, 14);
-		add(lblTypePuzzle);
+		levelTypeLabel = new JLabel("Type: Puzzle");
+		levelTypeLabel.setBounds(10, 34, 74, 14);
+		add(levelTypeLabel);
 		
 		JSlider slider = new JSlider();
 		slider.setValue(3);
@@ -546,5 +547,9 @@ public class BuilderPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
+	}
+	
+	public JLabel getLevelTypeLabel() {
+		return levelTypeLabel;
 	}
 }
