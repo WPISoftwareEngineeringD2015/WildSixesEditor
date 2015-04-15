@@ -9,7 +9,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import model.Model;
-import controller.ChangeLevelTypeController;
+import controller.CreateNewLevelController;
 
 public class MenuBarView extends JPanel{
 	/**
@@ -20,7 +20,7 @@ public class MenuBarView extends JPanel{
 
 	public MenuBarView(Model m) {
 		this.model = m;
-		ChangeLevelTypeController editLevelType = new ChangeLevelTypeController(model, this);
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 789, 21);
@@ -33,9 +33,11 @@ public class MenuBarView extends JPanel{
 		mntmSave.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		mnFile.add(mntmSave);
 		
-		JMenuItem mntmCreateNewLeve = new JMenuItem("Create New Level");
-		mntmCreateNewLeve.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
-		mnFile.add(mntmCreateNewLeve);
+		JMenuItem mntmCreateNewLevel = new JMenuItem("Create New Level");
+		mntmCreateNewLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
+		mnFile.add(mntmCreateNewLevel);
+		CreateNewLevelController createNew = new CreateNewLevelController(model);
+		mntmCreateNewLevel.addActionListener(createNew);
 		
 		JMenuItem mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
 		mntmEditExistingLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
@@ -46,7 +48,8 @@ public class MenuBarView extends JPanel{
 		
 		JMenuItem mntmEditLevelType = new JMenuItem("Edit Level Type");
 		mnNewMenu.add(mntmEditLevelType);
-		mntmEditLevelType.addActionListener(editLevelType);
+		//ChangeLevelTypeController editLevelType = new ChangeLevelTypeController();
+		//mntmEditLevelType.addActionListener(Application.editLevelType);
 		
 	}
 	
