@@ -13,12 +13,14 @@ public class Application extends JFrame{
 	Model model;
 	BuilderPanel panel;
 	LevelTypeView typePanel;
+	MenuBarView menuBar;
 	
 	public Application(Model m) {
 		super("Wild Sixes Level Builder");
 		this.model = m;
 		setSize(800, 750);
 		panel = new BuilderPanel(model);
+		menuBar = new MenuBarView(model);
 		add(panel);
 	}
 	
@@ -30,4 +32,7 @@ public class Application extends JFrame{
 		return typePanel;
 	}
 	
+	public JPanel getMenu() {
+		return menuBar;
+	}
 }

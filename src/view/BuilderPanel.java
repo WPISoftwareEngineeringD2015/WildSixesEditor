@@ -3,12 +3,8 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
@@ -17,7 +13,6 @@ import javax.swing.JTextPane;
 
 import model.Model;
 import controller.BuilderPanelClose;
-import controller.ChangeLevelTypeController;
 
 public class BuilderPanel extends JPanel {
 
@@ -34,7 +29,6 @@ public class BuilderPanel extends JPanel {
 	public BuilderPanel(Model m) {
 		this.model = m;
 		BuilderPanelClose closeController = new BuilderPanelClose(model, this);
-		ChangeLevelTypeController editLevelType = new ChangeLevelTypeController(model, this);
 		setLayout(null);
 		
 		btnX = new JButton("X");
@@ -108,31 +102,7 @@ public class BuilderPanel extends JPanel {
 		lblSelectDifficulty.setBounds(597, 463, 110, 14);
 		add(lblSelectDifficulty);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 789, 21);
-		add(menuBar);
 		
-		JMenu mnFile = new JMenu("File");
-		menuBar.add(mnFile);
-		
-		JMenuItem mntmSave = new JMenuItem("Save");
-		mntmSave.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
-		mnFile.add(mntmSave);
-		
-		JMenuItem mntmCreateNewLeve = new JMenuItem("Create New Level");
-		mntmCreateNewLeve.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
-		mnFile.add(mntmCreateNewLeve);
-		
-		JMenuItem mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
-		mntmEditExistingLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
-		mnFile.add(mntmEditExistingLevel);
-		
-		JMenu mnNewMenu = new JMenu("Edit");
-		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmEditLevelType = new JMenuItem("Edit Level Type");
-		mnNewMenu.add(mntmEditLevelType);
-		mntmEditLevelType.addActionListener(editLevelType);
 		
 		JLabel lblAddableComponents = new JLabel("Addable Components");
 		lblAddableComponents.setBounds(582, 209, 150, 14);
