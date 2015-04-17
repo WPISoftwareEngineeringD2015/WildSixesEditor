@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import model.Model;
 import controller.CreateNewLevelController;
+import controller.SaveController;
 
 public class MenuBarView extends JPanel{
 	/**
@@ -32,6 +33,8 @@ public class MenuBarView extends JPanel{
 		JMenuItem mntmSave = new JMenuItem("Save");
 		mntmSave.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		mnFile.add(mntmSave);
+		SaveController saveFile = new SaveController(model);
+		mntmSave.addActionListener(saveFile);
 		
 		JMenuItem mntmCreateNewLevel = new JMenuItem("Create New Level");
 		mntmCreateNewLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
