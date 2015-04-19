@@ -53,4 +53,8 @@ public class LevelTemplate implements Serializable{
 		grid[x][y] = tt ;
 	}
 	
+	public GameMode getGameMode() {
+		return this.mode;
+	}
+	
 }

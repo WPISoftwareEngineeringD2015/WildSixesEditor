@@ -8,8 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 import model.Model;
 import controller.BuilderPanelClose;
@@ -19,14 +17,14 @@ public class BuilderPanel extends JPanel {
 	Model model;
 	JButton btnX;
 	JLabel levelTypeLabel;
+	AddableView addableComponents;
+	ScoreView scores;
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 266441208898498549L;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	
 	public BuilderPanel(Model m) {
 		this.model = m;
 		BuilderPanelClose closeController = new BuilderPanelClose(model, this);
@@ -50,7 +48,12 @@ public class BuilderPanel extends JPanel {
 		btnPreview.setBounds(663, 576, 89, 23);
 		add(btnPreview);
 		
-		textField = new JTextField();
+		scores = new ScoreView(model);
+		scores.setBounds(569, 64, 150, 86);
+		add(scores);
+		
+		
+		/*textField = new JTextField();
 		textField.setBounds(667, 64, 86, 20);
 		add(textField);
 		textField.setColumns(10);
@@ -75,7 +78,7 @@ public class BuilderPanel extends JPanel {
 		
 		JLabel label_1 = new JLabel("\u2605\u2606\u2606");
 		label_1.setBounds(615, 129, 46, 14);
-		add(label_1);
+		add(label_1);*/
 		
 		JSpinner spinner = new JSpinner();
 		spinner.setBounds(621, 184, 29, 20);
@@ -109,7 +112,13 @@ public class BuilderPanel extends JPanel {
 		lblAddableComponents.setBounds(582, 209, 150, 14);
 		add(lblAddableComponents);
 		
-		JPanel panel = new JPanel();
+		addableComponents = new AddableView(model);
+		addableComponents.setBounds(582, 220, 89, 232);
+		add(addableComponents);
+		
+		
+		
+		/*JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setBounds(606, 234, 55, 55);
 		add(panel);
@@ -134,7 +143,7 @@ public class BuilderPanel extends JPanel {
 		
 		JTextPane txtpnReleaseBasket = new JTextPane();
 		txtpnReleaseBasket.setText("Release\r\nBasket");
-		panel_2.add(txtpnReleaseBasket);
+		panel_2.add(txtpnReleaseBasket);*/
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.GRAY);
@@ -550,6 +559,12 @@ public class BuilderPanel extends JPanel {
 	}
 	
 	public JLabel getLevelTypeLabel() {
-		return levelTypeLabel;
+		return this.levelTypeLabel;
 	}
+	
+	public AddableView getAddableView() {
+		return this.addableComponents;
+	}
+	
+	
 }
