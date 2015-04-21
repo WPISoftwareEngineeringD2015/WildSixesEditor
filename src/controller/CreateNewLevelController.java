@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import model.LevelTemplate;
 import model.Model;
 import views.Application;
+import views.BoardView;
+import views.BuilderPanel;
+import views.BuilderView;
 
 
 public class CreateNewLevelController implements ActionListener {
@@ -19,14 +22,14 @@ public class CreateNewLevelController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		LevelTemplate fresh = new LevelTemplate();
 		model.setLevelTemplate(fresh);
-		Application newApp = new Application(model);
-		newApp.setVisible(true);
-		/*BuilderView view = Application.getBuilderView();
+		/*Application newApp = new Application(model);
+		newApp.setVisible(true);*/
+		BuilderView view = Application.getBuilderView();
 		BuilderPanel panel = view.getBuilderPanel();
 		BoardView tiles = view.getBuilderPanel().getBoardView();
-		model.getBoard().emptyTilesOnBoard();
+		//model.getBoard().emptyTilesOnBoard();
 		tiles.repaintTiles();
-		panel.setVisible(true);*/
+		panel.setVisible(true);
 		
 	}
 	

@@ -13,7 +13,7 @@ public class Main {
 		SplashScreen splash = new SplashScreen(2000, levelBuilder);
 		levelBuilder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		splash.launchSplashSreen();
-		//levelBuilder.setVisible(true);
+
 	}
 
 }

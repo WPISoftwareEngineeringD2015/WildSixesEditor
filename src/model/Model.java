@@ -27,6 +27,7 @@ public class Model {
 	
 	public void setLevelTemplate(LevelTemplate newLT) {
 		this.temp = newLT;
+		this.board = new Board(temp);
 	}
 	
 }
