@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
 import model.Model;
-import net.miginfocom.swing.MigLayout;
+import java.awt.BorderLayout;
 
 public class AddableView extends JPanel{
 	/**
@@ -36,12 +36,13 @@ public class AddableView extends JPanel{
 		nullTile.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		nullTile.setSize(61,61);
 		add(nullTile);
-		nullTile.setLayout(new MigLayout("", "[458px]", "[384px]"));
+		nullTile.setLayout(new BorderLayout(0, 0));
+		//nullTile.setLayout(new MigLayout("", "[458px]", "[384px]"));
 		
 		JLabel lblNull = new JLabel("NULL");
 		lblNull.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNull.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		nullTile.add(lblNull, "cell 0 0,grow");
+		nullTile.add(lblNull);
 		//END OF nullTile
 		
 		//releaseTile
