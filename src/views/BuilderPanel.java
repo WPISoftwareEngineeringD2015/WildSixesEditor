@@ -1,6 +1,5 @@
-package view;
+package views;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JButton;
@@ -19,6 +18,7 @@ public class BuilderPanel extends JPanel {
 	JLabel levelTypeLabel;
 	AddableView addableComponents;
 	ScoreView scores;
+	BoardView board;
 	
 	/**
 	 * 
@@ -116,7 +116,10 @@ public class BuilderPanel extends JPanel {
 		addableComponents.setBounds(582, 220, 89, 232);
 		add(addableComponents);
 		
-		
+		//Displays the 9x9 grid of tiles
+		board = new BoardView(model);
+		board.setBounds(10, 64, 549, 534);
+		add(board);
 		
 		/*JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
@@ -145,7 +148,7 @@ public class BuilderPanel extends JPanel {
 		txtpnReleaseBasket.setText("Release\r\nBasket");
 		panel_2.add(txtpnReleaseBasket);*/
 		
-		JPanel panel_3 = new JPanel();
+		/*JPanel panel_3 = new JPanel();
 		panel_3.setBackground(Color.GRAY);
 		panel_3.setBounds(70, 64, 55, 55);
 		add(panel_3);
@@ -548,7 +551,7 @@ public class BuilderPanel extends JPanel {
 		JPanel panel_83 = new JPanel();
 		panel_83.setBackground(Color.GRAY);
 		panel_83.setBounds(490, 542, 55, 55);
-		add(panel_83);
+		add(panel_83);*/
 		
 	}
 	
@@ -566,5 +569,7 @@ public class BuilderPanel extends JPanel {
 		return this.addableComponents;
 	}
 	
-	
+	public BoardView getBoardView() {
+		return this.board;
+	}
 }

@@ -1,4 +1,4 @@
-package view;
+package views;
 
 import java.awt.FlowLayout;
 import java.awt.Graphics;
@@ -21,7 +21,9 @@ public class BuilderView extends JPanel{
 
 	public BuilderView(Model m) {
 		this.model = m;
+		
 		MenuBarView menu = new MenuBarView(model);
+		
 		builderPanel = new BuilderPanel(model);
 
 		FlowLayout flowLayout = (FlowLayout) menu.getLayout();
@@ -53,4 +55,9 @@ public class BuilderView extends JPanel{
 	public BuilderPanel getBuilderPanel() {
 		return builderPanel;
 	}
+	
+	public void setBuilderPanel(BuilderPanel newPanel) {
+		this.builderPanel = newPanel;
+	}
+	
 }

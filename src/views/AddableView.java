@@ -1,4 +1,4 @@
-package view;
+package views;
 
 import java.awt.Font;
 import java.awt.Graphics;

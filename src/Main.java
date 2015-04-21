@@ -1,8 +1,8 @@
 import javax.swing.JFrame;
 
 import model.Model;
-import view.Application;
-import view.SplashScreen;
+import views.Application;
+import views.SplashScreen;
 
 public class Main {
 

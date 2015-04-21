@@ -3,10 +3,9 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.LevelTemplate;
 import model.Model;
-import view.Application;
-import view.BuilderPanel;
-import view.BuilderView;
+import views.Application;
 
 
 public class CreateNewLevelController implements ActionListener {
@@ -18,10 +17,17 @@ public class CreateNewLevelController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		BuilderView view = Application.getBuilderView();
+		LevelTemplate fresh = new LevelTemplate();
+		model.setLevelTemplate(fresh);
+		Application newApp = new Application(model);
+		newApp.setVisible(true);
+		/*BuilderView view = Application.getBuilderView();
 		BuilderPanel panel = view.getBuilderPanel();
-		panel.setVisible(true);
+		BoardView tiles = view.getBuilderPanel().getBoardView();
+		model.getBoard().emptyTilesOnBoard();
+		tiles.repaintTiles();
+		panel.setVisible(true);*/
+		
 	}
-	
 	
 }

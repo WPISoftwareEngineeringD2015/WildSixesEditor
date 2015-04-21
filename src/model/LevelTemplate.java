@@ -39,6 +39,12 @@ public class LevelTemplate implements Serializable{
 	public LevelTemplate() {
 		this.starCriteria = null;
 		this.mode = GameMode.Puzzle;
+		this.grid = new TileType[Model.BOARD_LENGTH][Model.BOARD_WIDTH];
+		for (int x = 0; x < Model.BOARD_LENGTH; x++) {
+			for (int y = 0; y < Model.BOARD_WIDTH; y++) {
+				grid[x][y] = TileType.Null;
+			}
+		}
 	}
 	
 	public StarCriteria getStarCriteria() {

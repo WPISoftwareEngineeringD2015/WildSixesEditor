@@ -1,4 +1,4 @@
-package view;
+package views;
 
 import javax.swing.JFrame;
 import javax.swing.border.BevelBorder;

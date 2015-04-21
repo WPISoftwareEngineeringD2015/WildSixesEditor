@@ -1,15 +1,13 @@
 package controller;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
-import javax.swing.JButton;
-import javax.swing.JToggleButton;
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
-import view.TileTypeView;
+import views.TileTypeView;
 
 public class TileTypeController implements ActionListener{
 	JPanel panel;

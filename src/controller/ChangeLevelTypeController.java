@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import view.LevelTypeView;
+import views.LevelTypeView;
 
 public class ChangeLevelTypeController implements ActionListener{
 	JPanel panel;
