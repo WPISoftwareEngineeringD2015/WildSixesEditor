@@ -9,6 +9,7 @@ import model.LevelTemplate;
 import model.Model;
 import views.Application;
 import views.BoardView;
+import views.BuilderPanel;
 import views.BuilderView;
 
 public class DeserializeController {
@@ -34,18 +35,20 @@ public class DeserializeController {
 	      }
 		catch(IOException i) {
 	         return;
+		} 
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return;
 		}
-	    catch(ClassNotFoundException c) {
-	         return;
-	      }
 		
 		model.setLevelTemplate(newLT);
 		
 		//Refresh the view
 		BuilderView view = Application.getBuilderView();
-		//BuilderPanel panel = view.getBuilderPanel();
+		BuilderPanel panel = view.getBuilderPanel();
 		BoardView tiles = view.getBuilderPanel().getBoardView();
 		tiles.repaint();
+		panel.repaint();
 	}
 
 }

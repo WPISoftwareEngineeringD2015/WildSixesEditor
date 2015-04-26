@@ -20,7 +20,7 @@ public class LevelTemplate implements Serializable{
 		this.levelNumber = levelNumber;
 		this.mode = mode;
 		this.timeLimit = timeLimit;
-		this.moveLimit =moveLimit;
+		this.moveLimit = moveLimit;
 		this.random1 = random1;
 		this.random2 = random2;
 		this.random3 = random3;
@@ -38,13 +38,14 @@ public class LevelTemplate implements Serializable{
 	// necessary to have a blank constructor for constructing fresh levels to edit
 	public LevelTemplate() {
 		this.starCriteria = null;
-		this.mode = GameMode.Puzzle;
+		this.mode = GameMode.Elimination;
 		this.grid = new TileType[Model.BOARD_LENGTH][Model.BOARD_WIDTH];
 		for (int x = 0; x < Model.BOARD_LENGTH; x++) {
 			for (int y = 0; y < Model.BOARD_WIDTH; y++) {
 				grid[x][y] = TileType.Null;
 			}
 		}
+		this.moveLimit = 10;
 	}
 	
 	public StarCriteria getStarCriteria() {
@@ -65,6 +66,14 @@ public class LevelTemplate implements Serializable{
 	
 	public void setGrid(TileType[][] g) {
 		this.grid = g;
+	}
+	
+	public int getMoveLimit() {
+		return moveLimit;
+	}
+	
+	public void setMoveLimit(int i) {
+		this.moveLimit = i;
 	}
 	
 }

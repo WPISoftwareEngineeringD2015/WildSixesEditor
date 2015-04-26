@@ -1,5 +1,6 @@
 package views;
 
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 
@@ -11,7 +12,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
 import model.Model;
-import java.awt.BorderLayout;
 
 public class AddableView extends JPanel{
 	/**
@@ -25,6 +25,7 @@ public class AddableView extends JPanel{
 	JPanel releaseTile;
 	private JPanel sixTile;
 	private JLabel lblSix;
+	private JPanel panel;
 	
 	public AddableView(Model m) {
 		this.model = m;
@@ -78,6 +79,20 @@ public class AddableView extends JPanel{
 		lblSix.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		lblSix.setBounds(0, 0, 61, 61);
 		sixTile.add(lblSix);
+		
+		panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel.setBounds(81, 11, 61, 61);
+		add(panel);
+		//END of sixTile
+		
+		//START OF 
+		JLabel label = new JLabel("NUMBER");
+		label.setBounds(0, 0, 61, 61);
+		panel.add(label);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		//End of sixTile
 				
 	}
@@ -85,7 +100,6 @@ public class AddableView extends JPanel{
 	@Override
 	public void paintComponents(Graphics g) {
 		super.paintComponents(g);
-		
 	}
 	
 	public JPanel getSixTile() {
@@ -99,7 +113,5 @@ public class AddableView extends JPanel{
 	public JPanel getReleaseTile() {
 		return this.releaseTile;
 	}
-	
-	
 	
 }

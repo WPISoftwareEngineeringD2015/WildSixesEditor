@@ -29,6 +29,7 @@ public class CreateNewLevelController implements ActionListener {
 		BoardView tiles = view.getBuilderPanel().getBoardView();
 		//model.getBoard().emptyTilesOnBoard();
 		tiles.repaintTiles();
+		panel.repaint();
 		panel.setVisible(true);
 		
 	}

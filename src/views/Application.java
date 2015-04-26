@@ -28,7 +28,7 @@ public class Application extends JFrame{
 		setContentPane(builderView);
 		setSize(800, 750);
 		
-		//Get the level type and disable/enable the appropriate fields/buttons
+		//Get the level type and disable/enable the appropriate fields/buttons - probbably need to move this code to the AddableView paintComponents method
 		
 		GameMode currentMode = model.getLevelTemplate().getGameMode();
 		switch(currentMode) {
@@ -38,7 +38,8 @@ public class Application extends JFrame{
 			builderView.getBuilderPanel().getAddableView().getReleaseTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 			break;
 		case Elimination:
-			
+			builderView.getBuilderPanel().getAddableView().getSixTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			builderView.getBuilderPanel().getAddableView().getReleaseTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 			break;
 		case Lightning:
 			
