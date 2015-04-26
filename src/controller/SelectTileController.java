@@ -57,6 +57,7 @@ public class SelectTileController implements MouseListener {
 //		isMousePressed = false;
 		//TileView sourcePanel = (TileView) e.getSource();
 	//	boardView.getBoard().resetTileSum();
+		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
 		model.getBoard().resetTiles();
 		boardView.repaintTiles();
 	}

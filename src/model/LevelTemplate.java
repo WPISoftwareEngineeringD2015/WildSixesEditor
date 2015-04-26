@@ -63,4 +63,8 @@ public class LevelTemplate implements Serializable{
 		return this.mode;
 	}
 	
+	public void setGrid(TileType[][] g) {
+		this.grid = g;
+	}
+	
 }

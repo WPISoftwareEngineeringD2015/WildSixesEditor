@@ -18,10 +18,20 @@ public class FileIO {
 	}
 	
 	public File getCurrentFile() {
-		return this.currentFile;
+		if(currentFile != null) {
+			return this.currentFile;
+		}
+		else {
+			return this.defaultFile;
+		}
 	}
 	
 	public File getDefaultFile() {
 		return this.defaultFile;
 	}
+	
+	public void setCurrentFile(File f) {
+		this.currentFile = f;
+	}
+	
 }

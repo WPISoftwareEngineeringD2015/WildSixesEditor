@@ -69,7 +69,18 @@ public class Board {
 			for (Tile t : r) {
 				t.unSelect();
 			}
-
+	}
+	
+	public TileType[][] convertGrid() {
+		TileType[][] newGrid;
+		newGrid = new TileType[9][9];
+		for (int x = 0; x < 9; x++) {
+			for (int y = 0; y < 9; y++) {
+				TileType type = grid[x][y].getType();
+				newGrid[x][y] = type;
+			}
+		}
+		return newGrid;
 	}
 
 

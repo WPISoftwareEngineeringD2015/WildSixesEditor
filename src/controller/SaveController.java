@@ -11,13 +11,13 @@ public class SaveController implements ActionListener{
 	
 	public SaveController(Model m) {
 		this.model = m;
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		GetFileLocation getFile = new GetFileLocation(model);
-		File saveFile = getFile.getFile();
+		getFile.getFile();
+		File saveFile = model.getFiles().getCurrentFile();
 		SerializeController serialize = new SerializeController(model, saveFile);
 		serialize.Save();
 		

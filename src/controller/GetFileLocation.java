@@ -16,16 +16,17 @@ public class GetFileLocation{
 	}
 	
 	
-	public File getFile() {
+	public void getFile() {
 		dialog.setCurrentDirectory(new File(System.getProperty("user.home")));
 		if(dialog.showOpenDialog(dialog) == JFileChooser.APPROVE_OPTION) {
 			File file = dialog.getSelectedFile();
 			System.out.println(file.getAbsolutePath());
-			return file;
+			//return file;
+			model.getFiles().setCurrentFile(file);
 		}
 		
 		else {
-			return null;
+			return;
 		}
 		
 	}

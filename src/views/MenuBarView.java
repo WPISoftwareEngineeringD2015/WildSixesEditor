@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import model.Model;
 import controller.CreateNewLevelController;
+import controller.EditLevelController;
 import controller.SaveController;
 
 public class MenuBarView extends JPanel{
@@ -45,6 +46,8 @@ public class MenuBarView extends JPanel{
 		JMenuItem mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
 		mntmEditExistingLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 		mnFile.add(mntmEditExistingLevel);
+		EditLevelController editLevel = new EditLevelController(model);
+		mntmEditExistingLevel.addActionListener(editLevel);
 		
 		JMenu mnNewMenu = new JMenu("Edit");
 		menuBar.add(mnNewMenu);
