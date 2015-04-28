@@ -3,25 +3,24 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
-
-import views.LevelTypeView;
+import model.Model;
+import views.BuilderPanel;
+import views.GameModeSelectFrame;
 
 public class ChangeLevelTypeController implements ActionListener{
-	JPanel panel;
-	LevelTypeView typePanel;
+	BuilderPanel panel;
+
+	Model model;
 	
-	
-	public ChangeLevelTypeController(JPanel builder, LevelTypeView typeView) {
+	public ChangeLevelTypeController(BuilderPanel builder, Model m) {
 		this.panel = builder;
-		this.typePanel = typeView;
+		this.model = m;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//panel.setVisible(false);
-		panel.setVisible(false);
-		typePanel.setVisible(true);
+		GameModeSelectFrame selectGameMode = new GameModeSelectFrame(panel, model);
+		selectGameMode.selectNewGameMode();
 	}
 	
 }

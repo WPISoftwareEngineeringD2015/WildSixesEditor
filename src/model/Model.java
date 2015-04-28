@@ -6,11 +6,13 @@ public class Model {
 	public static final int BOARD_WIDTH = 9;
 	FileIO files;
 	Board board;
+	BuilderComponents components;
 	
 	public Model() {
 		this.temp = new LevelTemplate();
 		this.files = new FileIO();
 		this.board = new Board(temp);
+		this.components = new BuilderComponents();
 	}
 	
 	public LevelTemplate getLevelTemplate() {
@@ -28,6 +30,10 @@ public class Model {
 	public void setLevelTemplate(LevelTemplate newLT) {
 		this.temp = newLT;
 		this.board = new Board(temp);
+	}
+	
+	public BuilderComponents getBuilderComponents() {
+		return this.components;
 	}
 	
 }

@@ -22,9 +22,9 @@ public class BuilderView extends JPanel{
 	public BuilderView(Model m) {
 		this.model = m;
 		
-		MenuBarView menu = new MenuBarView(model);
-		
 		builderPanel = new BuilderPanel(model);
+		
+		MenuBarView menu = new MenuBarView(model, builderPanel);
 
 		FlowLayout flowLayout = (FlowLayout) menu.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);

@@ -29,10 +29,13 @@ public class Tile {
 			break;
 		case Number:
 			this.type = TileType.Number;
-			this.number = 2;
+			this.number = 1; // doesn't matter for the level builder
 			break;
 		case Release:
 			this.type = TileType.Release;
+			break;
+		case Block:
+			this.type = TileType.Block;
 			break;
 		}
 	}
@@ -47,11 +50,16 @@ public class Tile {
 		switch (type) {
 			default: break;
 			case Number:
-				str = number + "";
+				str = "#";
+				break;
 			case Null:
+				break;
+			case Block:
+				str = "6";
 				break;
 			case Release:
 				str = "R";
+				break;
 		}
 		return str;
 	}

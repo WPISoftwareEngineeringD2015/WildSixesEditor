@@ -41,15 +41,15 @@ public class TileView extends JPanel{
 		lblValue.setText(tile.toString());
 	}
 	
-	private final static Color[] NUMBER_COLORS = {Color.ORANGE, Color.CYAN, Color.GREEN, Color.RED, Color.YELLOW, Color.BLUE};
+	//private final static Color[] NUMBER_COLORS = {Color.ORANGE, Color.CYAN, Color.GREEN, Color.RED, Color.YELLOW, Color.BLUE};
 	
 	public Color getColor() {
 		switch (tile.getType()) {
 		case Null:
 			return Color.gray;
 		case Number:
-			int num = tile.getNumber();
-			return NUMBER_COLORS[num];
+			//int num = tile.getNumber();
+			return Color.CYAN;
 		case Release:
 			return Color.PINK;
 		default:

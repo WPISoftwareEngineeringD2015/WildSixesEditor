@@ -38,7 +38,7 @@ public class LevelTemplate implements Serializable{
 	// necessary to have a blank constructor for constructing fresh levels to edit
 	public LevelTemplate() {
 		this.starCriteria = null;
-		this.mode = GameMode.Elimination;
+		this.mode = GameMode.Puzzle;
 		this.grid = new TileType[Model.BOARD_LENGTH][Model.BOARD_WIDTH];
 		for (int x = 0; x < Model.BOARD_LENGTH; x++) {
 			for (int y = 0; y < Model.BOARD_WIDTH; y++) {
@@ -63,6 +63,11 @@ public class LevelTemplate implements Serializable{
 	public GameMode getGameMode() {
 		return this.mode;
 	}
+	
+	public void setGameMode(GameMode m) {
+		this.mode = m;
+	}
+	
 	
 	public void setGrid(TileType[][] g) {
 		this.grid = g;

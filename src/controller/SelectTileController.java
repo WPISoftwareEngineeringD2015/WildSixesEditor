@@ -1,14 +1,14 @@
 package controller;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import model.Model;
 import model.TileType;
 import views.BoardView;
 import views.TileView;
 
-public class SelectTileController implements MouseListener {
+public class SelectTileController implements UndoableEdits {
 	Model model;
 	BoardView boardView;
 	//MoveType moveType;
@@ -46,7 +46,8 @@ public class SelectTileController implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		isMousePressed = true;
 		TileView sourcePanel = (TileView) e.getSource();
-		sourcePanel.getTile().setType(TileType.Number);
+		TileType typeToSet = model.getBuilderComponents().getCurrentAddable();
+		sourcePanel.getTile().setType(typeToSet);
 		boardView.repaintTiles();
 		//sourcePanel.repaint();
 		//boardView.getBoard().addTileSum(sourcePanel.getTile().getNumber());
@@ -64,6 +65,24 @@ public class SelectTileController implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void redo() {
 		// TODO Auto-generated method stub
 		
 	}

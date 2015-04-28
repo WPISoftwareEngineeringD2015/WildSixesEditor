@@ -2,13 +2,17 @@ package views;
 
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
-import model.Model;
-import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import model.GameMode;
+import model.Model;
+import controller.BackButtonController;
+import controller.GameModeButtonsController;
 
 public class LevelTypeView extends JPanel{
 	/**
@@ -16,20 +20,40 @@ public class LevelTypeView extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	Model model;
+	JButton btnBack;
+	JButton btnPuzzle;
+	JButton btnLightning;
+	JButton btnElimination;
+	JButton btnRelease;
+	JFrame selectFrame;
+	JPanel builderPanel;
 	
-	public LevelTypeView(Model m) {
+	
+	public LevelTypeView(Model m, JFrame s, JPanel p) {
 		this.model = m;
+		this.selectFrame = s;
+		this.builderPanel = p;
 		
-		JButton btnBack = new JButton("Back");
+		btnBack = new JButton("Back");
+		BackButtonController backButtonController = new BackButtonController(selectFrame, builderPanel);
+		btnBack.addActionListener(backButtonController);
 		
+		btnPuzzle = new JButton("Puzzle");
+		GameModeButtonsController puzzleController = new GameModeButtonsController(selectFrame, builderPanel, model, GameMode.Puzzle);
+		btnPuzzle.addActionListener(puzzleController);
 		
-		JButton btnPuzzle = new JButton("Puzzle");
+		btnLightning = new JButton("Lightning");
+		GameModeButtonsController lightningController = new GameModeButtonsController(selectFrame, builderPanel, model, GameMode.Lightning);
+		btnLightning.addActionListener(lightningController);
 		
-		JButton btnLightning = new JButton("Lightning");
-		
-		JButton btnElimination = new JButton("Elimination");
+		btnElimination = new JButton("Elimination");
+		GameModeButtonsController eliminationController = new GameModeButtonsController(selectFrame, builderPanel, model, GameMode.Elimination);
+		btnElimination.addActionListener(eliminationController);
 		
 		JButton btnRelease = new JButton("Release");
+		GameModeButtonsController releaseController = new GameModeButtonsController(selectFrame, builderPanel, model, GameMode.Release);
+		btnRelease.addActionListener(releaseController);
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -70,4 +94,11 @@ public class LevelTypeView extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	}
+	
+	
+	
+	
+	
+	
+	
 }

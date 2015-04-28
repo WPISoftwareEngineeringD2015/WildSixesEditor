@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import model.Model;
+import controller.ChangeLevelTypeController;
 import controller.CreateNewLevelController;
 import controller.EditLevelController;
 import controller.SaveController;
@@ -19,9 +20,11 @@ public class MenuBarView extends JPanel{
 	 */
 	private static final long serialVersionUID = -6250157798725563642L;
 	Model model;
-
-	public MenuBarView(Model m) {
+	BuilderPanel panel;
+	
+	public MenuBarView(Model m, BuilderPanel b) {
 		this.model = m;
+		this.panel = b;
 		
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -54,8 +57,8 @@ public class MenuBarView extends JPanel{
 		
 		JMenuItem mntmEditLevelType = new JMenuItem("Edit Level Type");
 		mnNewMenu.add(mntmEditLevelType);
-		//ChangeLevelTypeController editLevelType = new ChangeLevelTypeController();
-		//mntmEditLevelType.addActionListener(Application.editLevelType);
+		ChangeLevelTypeController editLevelType = new ChangeLevelTypeController(panel, model);
+		mntmEditLevelType.addActionListener(editLevelType);
 		
 	}
 	

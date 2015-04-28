@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
 
+import model.GameMode;
 import model.Model;
 import controller.BuilderPanelClose;
 import controller.SaveController;
@@ -116,7 +117,7 @@ public class BuilderPanel extends JPanel {
 		add(slider);
 		
 		JLabel lblSelectDifficulty = new JLabel("Select Difficulty");
-		lblSelectDifficulty.setBounds(597, 463, 110, 14);
+		lblSelectDifficulty.setBounds(597, 469, 110, 14);
 		add(lblSelectDifficulty);
 		
 		
@@ -126,7 +127,7 @@ public class BuilderPanel extends JPanel {
 		add(lblAddableComponents);
 		
 		addableComponents = new AddableView(model);
-		addableComponents.setBounds(582, 220, 150, 232);
+		addableComponents.setBounds(569, 234, 150, 218);
 		add(addableComponents);
 		
 	}
@@ -134,8 +135,31 @@ public class BuilderPanel extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		GameMode currentMode = model.getLevelTemplate().getGameMode();
+		
+		switch(currentMode) {
+		
+		case Puzzle:
+			addableComponents.getReleaseTile().setVisible(false);
+			addableComponents.getSixTile().setVisible(false);
+			break;
+		case Elimination:
+			addableComponents.getReleaseTile().setVisible(false);
+			addableComponents.getSixTile().setVisible(false);
+			break;
+		case Lightning:
+			addableComponents.getReleaseTile().setVisible(false);
+			addableComponents.getSixTile().setVisible(false);
+			break;
+		case Release:
+			addableComponents.getReleaseTile().setVisible(true);
+			addableComponents.getSixTile().setVisible(true);
+			break;
+		
+		}
 		moveSpinner.setValue(model.getLevelTemplate().getMoveLimit());
-		levelTypeLabel.setText("Type: ".concat(model.getLevelTemplate().getGameMode().toString()));
+		levelTypeLabel.setText("Type: ".concat(currentMode.toString()));
 		addableComponents.repaint();
 	}
 	

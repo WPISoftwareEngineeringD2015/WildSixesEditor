@@ -15,6 +15,8 @@ public class EditLevelController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		CreateNewLevelController freshLevel = new CreateNewLevelController(model);
+		freshLevel.actionPerformed(new ActionEvent(freshLevel, 0, null));
 		GetFileLocation getFile = new GetFileLocation(model);
 		getFile.getFile();
 		File editFile = model.getFiles().getCurrentFile();

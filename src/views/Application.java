@@ -1,9 +1,7 @@
 package views;
 
 import javax.swing.JFrame;
-import javax.swing.border.BevelBorder;
 
-import model.GameMode;
 import model.Model;
 
 public class Application extends JFrame{
@@ -27,30 +25,6 @@ public class Application extends JFrame{
 		builderView = new BuilderView(model);
 		setContentPane(builderView);
 		setSize(800, 750);
-		
-		//Get the level type and disable/enable the appropriate fields/buttons - probbably need to move this code to the AddableView paintComponents method
-		
-		GameMode currentMode = model.getLevelTemplate().getGameMode();
-		switch(currentMode) {
-		
-		case Puzzle:
-			builderView.getBuilderPanel().getAddableView().getSixTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-			builderView.getBuilderPanel().getAddableView().getReleaseTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-			break;
-		case Elimination:
-			builderView.getBuilderPanel().getAddableView().getSixTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-			builderView.getBuilderPanel().getAddableView().getReleaseTile().setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-			break;
-		case Lightning:
-			
-			break;
-		case Release:
-			break;
-		
-		}
-		
-		
-		
 	}
 	
 	public static BuilderView getBuilderView() {
