@@ -143,14 +143,17 @@ public class BuilderPanel extends JPanel {
 		case Puzzle:
 			addableComponents.getReleaseTile().setVisible(false);
 			addableComponents.getSixTile().setVisible(false);
+			model.getBoard().scrubGrid();
 			break;
 		case Elimination:
 			addableComponents.getReleaseTile().setVisible(false);
 			addableComponents.getSixTile().setVisible(false);
+			model.getBoard().scrubGrid();
 			break;
 		case Lightning:
 			addableComponents.getReleaseTile().setVisible(false);
 			addableComponents.getSixTile().setVisible(false);
+			model.getBoard().scrubGrid();
 			break;
 		case Release:
 			addableComponents.getReleaseTile().setVisible(true);

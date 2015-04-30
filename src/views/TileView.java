@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.Model;
 import model.Tile;
 
 public class TileView extends JPanel{
@@ -16,10 +17,12 @@ public class TileView extends JPanel{
 	private static final long serialVersionUID = 1L;
 	Tile tile;
 	JLabel lblValue;
+	Model model;
 	
-	public TileView(Tile tile) {
+	public TileView(Tile tile, Model m) {
 		super();
 		this.tile = tile;
+		this.model = m;
 		setSize(50,50);
 		
 		this.lblValue = new JLabel("VALUE");

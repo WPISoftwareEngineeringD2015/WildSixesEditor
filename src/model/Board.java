@@ -60,7 +60,7 @@ public class Board {
 		return template;
 	}
 
-/*	public void setTemplate(LevelTemplate template) {
+	/*	public void setTemplate(LevelTemplate template) {
 		this.template = template;
 	}*/
 
@@ -70,7 +70,7 @@ public class Board {
 				t.unSelect();
 			}
 	}
-	
+
 	public TileType[][] convertGrid() {
 		TileType[][] newGrid;
 		newGrid = new TileType[9][9];
@@ -81,6 +81,28 @@ public class Board {
 			}
 		}
 		return newGrid;
+	}
+
+	public void scrubGrid() {
+		GameMode g = template.getGameMode();
+
+		switch(g) {
+		case Puzzle:
+		case Elimination:
+		case Lightning:
+			for (int x = 0; x < 9; x++) {
+				for (int y = 0; x < 9; y++) {
+					TileType type = grid[x][y].getType();
+					if(type == TileType.Release || type == TileType.Block) {
+						grid[x][y].setType(TileType.Null);
+					}
+				}
+			}
+			break;
+		case Release:
+			break;
+		}
+
 	}
 
 

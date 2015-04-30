@@ -28,7 +28,7 @@ public class BoardView extends JPanel {
 		Tile[][] grid = m.getBoard().getGrid();
 		for (int x = 0; x < 9; x++) {
 			for (int y = 0; y < 9; y++) {
-				tvs[x][y] = new TileView(grid[x][y]);
+				tvs[x][y] = new TileView(grid[x][y], model);
 				tvs[x][y].addMouseListener(new SelectTileController(model, this));
 				add(tvs[x][y]);
 			}
