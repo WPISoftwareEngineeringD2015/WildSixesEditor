@@ -91,7 +91,7 @@ public class Board {
 		case Elimination:
 		case Lightning:
 			for (int x = 0; x < 9; x++) {
-				for (int y = 0; x < 9; y++) {
+				for (int y = 0; y < 9; y++) {
 					TileType type = grid[x][y].getType();
 					if(type == TileType.Release || type == TileType.Block) {
 						grid[x][y].setType(TileType.Null);

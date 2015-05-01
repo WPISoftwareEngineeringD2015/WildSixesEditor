@@ -14,10 +14,7 @@ import javax.swing.border.BevelBorder;
 
 import model.Model;
 import model.TileType;
-import controller.BlockButtonController;
-import controller.NullButtonController;
-import controller.NumberButtonController;
-import controller.ReleaseButtonController;
+import controller.AddableButtonsController;
 
 public class AddableView extends JPanel{
 	/**
@@ -46,8 +43,8 @@ public class AddableView extends JPanel{
 		add(nullTile);
 		nullTile.setLayout(new BorderLayout(0, 0));
 		//nullTile.setLayout(new MigLayout("", "[458px]", "[384px]"));
-		NullButtonController nullButtonController = new NullButtonController(model, this);
-		nullTile.addMouseListener(nullButtonController);
+		AddableButtonsController addableNull = new AddableButtonsController(model, this, TileType.Null);
+		nullTile.addMouseListener(addableNull);
 		
 		JLabel lblNull = new JLabel("NULL");
 		lblNull.setHorizontalAlignment(SwingConstants.CENTER);
@@ -60,8 +57,8 @@ public class AddableView extends JPanel{
 		releaseTile.setBounds(10, 83, 61, 61);
 		releaseTile.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		add(releaseTile);
-		ReleaseButtonController releaseButtonController = new ReleaseButtonController(model, this);
-		releaseTile.addMouseListener(releaseButtonController);
+		AddableButtonsController addableRelease = new AddableButtonsController(model, this, TileType.Release);
+		releaseTile.addMouseListener(addableRelease);
 		
 		JLabel lblRelease = new JLabel("RELEASE");
 		lblRelease.setHorizontalAlignment(SwingConstants.CENTER);
@@ -84,8 +81,8 @@ public class AddableView extends JPanel{
 		sixTile.setBounds(10, 155, 61, 61);
 		add(sixTile);
 		sixTile.setLayout(null);
-		BlockButtonController blockButtonController = new BlockButtonController(model, this);
-		sixTile.addMouseListener(blockButtonController);
+		AddableButtonsController addableBlock = new AddableButtonsController(model, this, TileType.Block);
+		sixTile.addMouseListener(addableBlock);
 		
 		lblSix = new JLabel("SIX");
 		lblSix.setHorizontalAlignment(SwingConstants.CENTER);
@@ -100,8 +97,8 @@ public class AddableView extends JPanel{
 		numberTile.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		numberTile.setBounds(81, 11, 61, 61);
 		add(numberTile);
-		NumberButtonController numberButtonController = new NumberButtonController(model, this);
-		numberTile.addMouseListener(numberButtonController);
+		AddableButtonsController addableNumber = new AddableButtonsController(model, this, TileType.Number);
+		numberTile.addMouseListener(addableNumber);
 		
 		JLabel label = new JLabel("NUMBER");
 		label.setBounds(0, 0, 61, 61);
