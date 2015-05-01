@@ -6,13 +6,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
-import javax.swing.JSpinner;
 
 import model.GameMode;
 import model.Model;
 import controller.BuilderPanelClose;
 import controller.SaveController;
-import controller.UpdateMoveLimitController;
 
 public class BuilderPanel extends JPanel {
 
@@ -22,7 +20,8 @@ public class BuilderPanel extends JPanel {
 	AddableView addableComponents;
 	ScoreView scores;
 	BoardView board;
-	JSpinner moveSpinner;
+	TimeView timeView;
+	NumberMovesView numberMovesView;
 	
 	/**
 	 * 
@@ -47,7 +46,7 @@ public class BuilderPanel extends JPanel {
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(566, 575, 89, 23);
 		add(btnSave);
-		SaveController saveFile = new SaveController(model);
+		SaveController saveFile = new SaveController(model, this);
 		btnSave.addActionListener(saveFile);
 		
 		JButton btnPreview = new JButton("Preview");
@@ -64,44 +63,6 @@ public class BuilderPanel extends JPanel {
 		add(board);
 		
 		
-		/*textField = new JTextField();
-		textField.setBounds(667, 64, 86, 20);
-		add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(667, 95, 86, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(667, 126, 86, 20);
-		add(textField_2);
-		textField_2.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("\u2605\u2605\u2605");
-		lblNewLabel.setBounds(615, 67, 46, 14);
-		add(lblNewLabel);
-		
-		JLabel label = new JLabel("\u2605\u2605\u2606");
-		label.setBounds(615, 98, 46, 14);
-		add(label);
-		
-		JLabel label_1 = new JLabel("\u2605\u2606\u2606");
-		label_1.setBounds(615, 129, 46, 14);
-		add(label_1);*/
-		
-		moveSpinner = new JSpinner();
-		moveSpinner.setBounds(621, 184, 45, 20);
-		moveSpinner.setValue(model.getLevelTemplate().getMoveLimit());
-		add(moveSpinner);
-		UpdateMoveLimitController updateMoveLimit = new UpdateMoveLimitController(model);
-		moveSpinner.addChangeListener(updateMoveLimit);
-		
-		JLabel lblNumberOfMoves = new JLabel("Number of Moves Allowed");
-		lblNumberOfMoves.setBounds(569, 161, 174, 14);
-		add(lblNumberOfMoves);
-		
 		levelTypeLabel = new JLabel("Type: Puzzle");
 		levelTypeLabel.setBounds(10, 34, 207, 14);
 		add(levelTypeLabel);
@@ -113,22 +74,30 @@ public class BuilderPanel extends JPanel {
 		slider.setPaintTicks(true);
 		slider.setMinorTickSpacing(1);
 		slider.setMaximum(5);
-		slider.setBounds(561, 494, 200, 26);
+		slider.setBounds(566, 538, 200, 26);
 		add(slider);
 		
 		JLabel lblSelectDifficulty = new JLabel("Select Difficulty");
-		lblSelectDifficulty.setBounds(597, 469, 110, 14);
+		lblSelectDifficulty.setBounds(582, 513, 110, 14);
 		add(lblSelectDifficulty);
 		
 		
 		
 		JLabel lblAddableComponents = new JLabel("Addable Components");
-		lblAddableComponents.setBounds(582, 209, 150, 14);
+		lblAddableComponents.setBounds(569, 255, 150, 14);
 		add(lblAddableComponents);
 		
 		addableComponents = new AddableView(model);
-		addableComponents.setBounds(569, 234, 150, 218);
+		addableComponents.setBounds(569, 272, 150, 218);
 		add(addableComponents);
+		
+		timeView = new TimeView(model);
+		timeView.setBounds(579, 161, 162, 73);
+		add(timeView);
+		
+		numberMovesView = new NumberMovesView(model);
+		numberMovesView.setBounds(584, 158, 157, 76);
+		add(numberMovesView);
 		
 	}
 	
@@ -144,24 +113,32 @@ public class BuilderPanel extends JPanel {
 			addableComponents.getReleaseTile().setVisible(false);
 			addableComponents.getSixTile().setVisible(false);
 			model.getBoard().scrubGrid();
+			timeView.setVisible(false);
+			numberMovesView.setVisible(false);
 			break;
 		case Elimination:
 			addableComponents.getReleaseTile().setVisible(false);
 			addableComponents.getSixTile().setVisible(false);
 			model.getBoard().scrubGrid();
+			timeView.setVisible(false);
+			numberMovesView.setVisible(true);
 			break;
 		case Lightning:
 			addableComponents.getReleaseTile().setVisible(false);
 			addableComponents.getSixTile().setVisible(false);
 			model.getBoard().scrubGrid();
+			timeView.setVisible(true);
+			numberMovesView.setVisible(false);
 			break;
 		case Release:
 			addableComponents.getReleaseTile().setVisible(true);
 			addableComponents.getSixTile().setVisible(true);
+			timeView.setVisible(false);
+			numberMovesView.setVisible(false);
 			break;
 		
 		}
-		moveSpinner.setValue(model.getLevelTemplate().getMoveLimit());
+		
 		levelTypeLabel.setText("Type: ".concat(currentMode.toString()));
 		addableComponents.repaint();
 	}
@@ -176,6 +153,10 @@ public class BuilderPanel extends JPanel {
 	
 	public BoardView getBoardView() {
 		return this.board;
+	}
+	
+	public ScoreView getScoreView() {
+		return this.scores;
 	}
 	
 	

@@ -37,7 +37,7 @@ public class MenuBarView extends JPanel{
 		JMenuItem mntmSave = new JMenuItem("Save");
 		mntmSave.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		mnFile.add(mntmSave);
-		SaveController saveFile = new SaveController(model);
+		SaveController saveFile = new SaveController(model, panel);
 		mntmSave.addActionListener(saveFile);
 		
 		JMenuItem mntmCreateNewLevel = new JMenuItem("Create New Level");

@@ -19,6 +19,17 @@ public class StarCriteria {
 		this.movesMade3 = movesMade3;
 	}
 	
+	public StarCriteria() {
+		this.points = 0;
+		this.movesMade = 0;
+		this.points1 = 0;
+		this.points2 = 0;
+		this.points3 = 0;
+		this.movesMade1 = 0;
+		this.movesMade2 = 0;
+		this.movesMade3 = 0;
+	}
+	
 	// TODO, so far it's only evident to the user that points are needed for Stars... see StarCriteriaView.java ...
 	
 	public int getPoints1() {
@@ -32,6 +43,19 @@ public class StarCriteria {
 	public int getPoints3() {
 		return points3;
 	}
+	
+	public void setPoints1(int i) {
+		this.points1 = i;
+	}
+	
+	public void setPoints2(int i) {
+		this.points2 = i;
+	}
+	
+	public void setPoints3(int i) {
+		this.points3 = i;
+	}
+	
 	
 	public StarRating getRating() {
 		if (points >= points3 && movesMade <= movesMade3) return StarRating.ThreeStars;

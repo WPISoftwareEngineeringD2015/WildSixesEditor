@@ -6,10 +6,10 @@ import javax.swing.event.ChangeListener;
 
 import model.Model;
 
-public class UpdateMoveLimitController implements ChangeListener{
+public class UpdateTimeLimitController implements ChangeListener{
 	Model model;
 	
-	public UpdateMoveLimitController(Model m) {
+	public UpdateTimeLimitController(Model m) {
 		this.model = m;
 	}
 	
@@ -17,10 +17,7 @@ public class UpdateMoveLimitController implements ChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSpinner moveSpinner = (JSpinner) e.getSource();
-		int newMoveLimit = (int) moveSpinner.getValue();
-		model.getLevelTemplate().setMoveLimit(newMoveLimit);
+		int newTimeLimit = (int) moveSpinner.getValue();
+		model.getLevelTemplate().setTimeLimit(newTimeLimit);
 	}
-	
-	
-
 }

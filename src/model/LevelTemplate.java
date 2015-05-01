@@ -46,6 +46,7 @@ public class LevelTemplate implements Serializable{
 			}
 		}
 		this.moveLimit = 10;
+		this.starCriteria = new StarCriteria();
 	}
 	
 	public StarCriteria getStarCriteria() {
@@ -79,6 +80,14 @@ public class LevelTemplate implements Serializable{
 	
 	public void setMoveLimit(int i) {
 		this.moveLimit = i;
+	}
+	
+	public int getTimeLimit() {
+		return timeLimit;
+	}
+	
+	public void setTimeLimit(int i) {
+		this.timeLimit = i;
 	}
 	
 }

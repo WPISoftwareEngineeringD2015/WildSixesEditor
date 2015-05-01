@@ -24,7 +24,7 @@ public class Application extends JFrame{
 		setTitle("Wild Sixes Level Builder");
 		builderView = new BuilderView(model);
 		setContentPane(builderView);
-		setSize(800, 750);
+		setSize(850, 750);
 	}
 	
 	public static BuilderView getBuilderView() {
