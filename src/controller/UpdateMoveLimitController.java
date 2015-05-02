@@ -5,15 +5,27 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import model.Model;
+/**
+ * UpdateMoveLimitController class updates the moveLimit attribute in the level template when the user selects a new value
+ * @author alyssagraham
+ *
+ */
 
 public class UpdateMoveLimitController implements ChangeListener{
 	Model model;
 	
+	/**
+	 * Constructor method for UpdateMoveLimitController
+	 * @param m Model object for the builder
+	 */
 	public UpdateMoveLimitController(Model m) {
 		this.model = m;
 	}
 	
-	
+	/**
+	 * Override stateChanged method
+	 * gets the new value of the JSpinner when altered and sets the new value in the level template
+	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSpinner moveSpinner = (JSpinner) e.getSource();

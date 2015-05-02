@@ -15,6 +15,13 @@ import javax.swing.border.BevelBorder;
 import model.Model;
 import model.TileType;
 import controller.AddableButtonsController;
+/**
+ * AddableView class part of the boundary objects
+ * AddableView contains the four "addable" tiles that can be added to levels
+ * Changes color of selected TileType to be added to the board
+ * @author alyssagraham
+ *
+ */
 
 public class AddableView extends JPanel{
 	/**
@@ -30,6 +37,10 @@ public class AddableView extends JPanel{
 	private JPanel sixTile;
 	private JLabel lblSix;
 	
+	/**
+	 * Constructor for AddableView class
+	 * @param m - Model object for the builder
+	 */
 	public AddableView(Model m) {
 		this.model = m;
 		setLayout(null);
@@ -108,6 +119,10 @@ public class AddableView extends JPanel{
 				
 	}
 	
+	/**
+	 * Override method for paintComponent
+	 * Changes color of currently selected "Addable" Tile
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -146,19 +161,34 @@ public class AddableView extends JPanel{
 		this.repaint();
 	}
 
-	
+	/**
+	 * get method for JPanel sixTile
+	 * @return JPanel for six tile 
+	 */
 	public JPanel getSixTile() {
 		return this.sixTile;
 	}
 	
+	/**
+	 * get method for JPanel nullTile
+	 * @return JPanel for nullTile
+	 */
 	public JPanel getNullTile() {
 		return this.nullTile;
 	}
 	
+	/**
+	 * get method for JPanel releaseTile
+	 * @return JPanel for realeaseTile
+	 */
 	public JPanel getReleaseTile() {
 		return this.releaseTile;
 	}
 	
+	/**
+	 * get method for JPanel numberTile
+	 * @return JPanel for numberTile 
+	 */
 	public JPanel getNumberTile() {
 		return this.numberTile;
 	}

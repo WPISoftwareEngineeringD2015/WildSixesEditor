@@ -12,6 +12,11 @@ import model.Model;
 import controller.UpdateTimeLimitController;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+/**
+ * TimeView
+ * @author alyssagraham
+ *
+ */
 public class TimeView extends JPanel{
 	Model model;
 	JSpinner timeLimit;
@@ -21,6 +26,10 @@ public class TimeView extends JPanel{
 	 */
 	private static final long serialVersionUID = -6093481146071634509L;
 
+	/**
+	 * Constructor for TimeView class
+	 * @param m Model for builder
+	 */
 	public TimeView(Model m) {
 		this.model = m;
 		
@@ -59,10 +68,13 @@ public class TimeView extends JPanel{
 	}
 	
 	
-	
+	/**
+	 * Override paintComponents method 
+	 * updates the time limit based off the value in the LevelTemplate
+	 */
 	@Override 
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		timeLimit.setValue(model.getLevelTemplate().getTimeLimit());
 	}
 }

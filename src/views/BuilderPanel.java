@@ -12,6 +12,12 @@ import model.Model;
 import controller.BuilderPanelClose;
 import controller.SaveController;
 
+/**
+ * BuilderPanel is an aggregate the components related to a particular level that is currently being built by the level builder
+ * @author alyssagraham
+ *
+ */
+
 public class BuilderPanel extends JPanel {
 
 	Model model;
@@ -28,6 +34,10 @@ public class BuilderPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 266441208898498549L;
 	
+	/**
+	 * Constructor method for BuilderPanel
+	 * @param m Model object for the builder
+	 */
 	public BuilderPanel(Model m) {
 		this.model = m;
 		BuilderPanelClose closeController = new BuilderPanelClose(model, this);
@@ -37,11 +47,6 @@ public class BuilderPanel extends JPanel {
 		btnX.setBounds(707, 33, 45, 23);
 		add(btnX);
 		btnX.addActionListener(closeController);
-		
-		
-/*		JButton btnBack = new JButton("Back");
-		btnBack.setBounds(10, 618, 89, 23);
-		add(btnBack);*/
 		
 		JButton btnSave = new JButton("Save");
 		btnSave.setBounds(566, 575, 89, 23);
@@ -101,6 +106,10 @@ public class BuilderPanel extends JPanel {
 		
 	}
 	
+	/**
+	 * Override method for painting the BuilderPanel
+	 * Sets visibility related to the current Game Mode being built
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -144,18 +153,19 @@ public class BuilderPanel extends JPanel {
 		scores.repaint();
 	}
 	
-	public JLabel getLevelTypeLabel() {
-		return this.levelTypeLabel;
-	}
 	
-	public AddableView getAddableView() {
-		return this.addableComponents;
-	}
-	
+	/**
+	 * get method for BoardView board attribute
+	 * @return BoardView board
+	 */
 	public BoardView getBoardView() {
 		return this.board;
 	}
 	
+	/**
+	 * get method for ScoreView scores attribute
+	 * @return ScoreView scores
+	 */
 	public ScoreView getScoreView() {
 		return this.scores;
 	}

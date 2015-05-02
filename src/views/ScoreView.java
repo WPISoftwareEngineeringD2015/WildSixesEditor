@@ -10,6 +10,14 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 
+/**
+ * ScoreView class part of the boundary objects
+ * ScoreView shows three JTextFields for the three different star levels
+ * Allows the user to update the star criteria for the level being built
+ * @author alyssagraham
+ *
+ */
+
 public class ScoreView extends JPanel{
 	/**
 	 * 
@@ -20,6 +28,11 @@ public class ScoreView extends JPanel{
 	JTextField twoStars;
 	JTextField oneStars;
 	
+	
+	/**
+	 * Constructor for ScoreView class
+	 * @param m Model object for builder
+	 */
 	public ScoreView(Model m) {
 		this.model = m;
 		
@@ -85,22 +98,38 @@ public class ScoreView extends JPanel{
 		
 	}
 	
+	/**
+	 * Override method paintComponent for ScoreView class
+	 * Updates JTextFields for Star criteria with the current values in the levelTemplate
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		oneStars.setText(Integer.toString(model.getLevelTemplate().getStarCriteria().getPoints1()));
 		twoStars.setText(Integer.toString(model.getLevelTemplate().getStarCriteria().getPoints2()));
 		threeStars.setText(Integer.toString(model.getLevelTemplate().getStarCriteria().getPoints3()));
-		System.out.println("Scores painted");
 	}
 	
+	/**
+	 * get method for JTextField threeStars
+	 * @return JTextField threeStars
+	 */
 	public JTextField getThreeStars() {
 		return this.threeStars;
 	}
 	
+	/**
+	 * get method for JTextField twoStars
+	 * @return JTextField twoStars
+	 */
 	public JTextField getTwoStars() {
 		return this.twoStars;
 	}
+	
+	/**
+	 * get method for JTextField oneStars
+	 * @return JTextField oneStars
+	 */
 	public JTextField getOneStars() {
 		return this.oneStars;
 	}
