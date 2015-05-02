@@ -10,7 +10,7 @@ public class Main {
 
 		Model m = new Model();
 		Application levelBuilder = new Application(m);
-		SplashScreen splash = new SplashScreen(2000, levelBuilder);
+		SplashScreen splash = new SplashScreen(20, levelBuilder);
 		levelBuilder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		splash.launchSplashSreen();
 

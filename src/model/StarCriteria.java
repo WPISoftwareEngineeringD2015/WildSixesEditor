@@ -2,6 +2,14 @@ package model;
 
 import java.io.Serializable;
 
+/**
+ * StarCriteria part of the entity classes
+ * Describes the values necessary to get one, two, and three star rankings
+ * @author 
+ * @author alyssagraham
+ *
+ */
+
 public class StarCriteria implements Serializable{
 	/**
 	 * 
@@ -37,37 +45,52 @@ public class StarCriteria implements Serializable{
 	}
 	
 	// TODO, so far it's only evident to the user that points are needed for Stars... see StarCriteriaView.java ...
-	
+	/**
+	 * get method for int points1
+	 * @return int points1
+	 */
 	public int getPoints1() {
 		return points1;
 	}
 	
+	/**
+	 * get method for int points2
+	 * @return int points2
+	 */
 	public int getPoints2() {
 		return points2;
 	}
 	
+	/**
+	 * get method for int points3
+	 * @return int points3
+	 */
 	public int getPoints3() {
 		return points3;
 	}
 	
+	/**
+	 * set method for int points1
+	 * @param i value to set int points1 attribute to
+	 */
 	public void setPoints1(int i) {
 		this.points1 = i;
 	}
 	
+	/**
+	 * set method for int points2
+	 * @param i value to set int points2 attribute to
+	 */
 	public void setPoints2(int i) {
 		this.points2 = i;
 	}
 	
+	/**
+	 * set method for int points3
+	 * @param i value to set int points3 attribute to
+	 */
 	public void setPoints3(int i) {
 		this.points3 = i;
-	}
-	
-	
-	public StarRating getRating() {
-		if (points >= points3 && movesMade <= movesMade3) return StarRating.ThreeStars;
-		else if (points >= points2 && movesMade <= movesMade2) return StarRating.TwoStars;
-		else if (points >= points1 && movesMade <= movesMade1) return StarRating.OneStar;
-		return StarRating.NoStars;
 	}
 	
 }
