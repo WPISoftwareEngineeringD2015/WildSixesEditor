@@ -85,11 +85,13 @@ public class ScoreView extends JPanel{
 		
 	}
 	
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		oneStars.setText(Integer.toString(model.getLevelTemplate().getStarCriteria().getPoints1()));
 		twoStars.setText(Integer.toString(model.getLevelTemplate().getStarCriteria().getPoints2()));
 		threeStars.setText(Integer.toString(model.getLevelTemplate().getStarCriteria().getPoints3()));
+		System.out.println("Scores painted");
 	}
 	
 	public JTextField getThreeStars() {

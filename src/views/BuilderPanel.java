@@ -141,6 +141,7 @@ public class BuilderPanel extends JPanel {
 		
 		levelTypeLabel.setText("Type: ".concat(currentMode.toString()));
 		addableComponents.repaint();
+		scores.repaint();
 	}
 	
 	public JLabel getLevelTypeLabel() {

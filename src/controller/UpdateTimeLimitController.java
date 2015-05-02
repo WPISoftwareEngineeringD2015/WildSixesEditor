@@ -17,7 +17,9 @@ public class UpdateTimeLimitController implements ChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSpinner moveSpinner = (JSpinner) e.getSource();
-		int newTimeLimit = (int) moveSpinner.getValue();
+		// Changed from a cast to this combo of functions for compatibility with 1.6 
+		// Can change back later - doing this so I can work on this at work
+		int newTimeLimit = Integer.parseInt(moveSpinner.getValue().toString());
 		model.getLevelTemplate().setTimeLimit(newTimeLimit);
 	}
 }

@@ -1,6 +1,12 @@
 package model;
 
-public class StarCriteria {
+import java.io.Serializable;
+
+public class StarCriteria implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int points;
 	int movesMade;
 	

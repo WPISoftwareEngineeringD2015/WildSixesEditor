@@ -4,7 +4,7 @@ public class BuilderComponents {
 	TileType currentAddable;
 	
 	public BuilderComponents() {
-		this.currentAddable = TileType.Null;
+		this.currentAddable = TileType.Number;
 	}
 
 	public void setCurrentAddable(TileType t) {

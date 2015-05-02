@@ -39,10 +39,9 @@ public class AddableView extends JPanel{
 		nullTile.setLocation(10, 11);
 		nullTile.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		nullTile.setSize(61,61);
-		nullTile.setBackground(new Color(10));
+		//nullTile.setBackground(new Color(10));
 		add(nullTile);
 		nullTile.setLayout(new BorderLayout(0, 0));
-		//nullTile.setLayout(new MigLayout("", "[458px]", "[384px]"));
 		AddableButtonsController addableNull = new AddableButtonsController(model, this, TileType.Null);
 		nullTile.addMouseListener(addableNull);
 		
@@ -110,8 +109,8 @@ public class AddableView extends JPanel{
 	}
 	
 	@Override
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		
 		TileType type = model.getBuilderComponents().getCurrentAddable();
 		
