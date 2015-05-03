@@ -10,7 +10,7 @@ import javax.swing.JSpinner;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import model.Model;
-import controller.UpdateMoveLimitController;
+import controllers.UpdateMoveLimitController;
 
 public class NumberMovesView extends JPanel{
 

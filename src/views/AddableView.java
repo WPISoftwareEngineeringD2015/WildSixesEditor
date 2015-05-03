@@ -14,7 +14,7 @@ import javax.swing.border.BevelBorder;
 
 import kiviuq.entities.TileType;
 import model.Model;
-import controller.AddableButtonsController;
+import controllers.AddableButtonsController;
 /**
  * AddableView class part of the boundary objects
  * AddableView contains the four "addable" tiles that can be added to levels

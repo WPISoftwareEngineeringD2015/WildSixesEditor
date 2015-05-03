@@ -9,10 +9,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import model.Model;
-import controller.ChangeLevelTypeController;
-import controller.CreateNewLevelController;
-import controller.EditLevelController;
-import controller.SaveController;
+import controllers.ChangeLevelTypeController;
+import controllers.CreateNewLevelController;
+import controllers.EditLevelController;
+import controllers.SaveController;
 
 public class MenuBarView extends JPanel{
 	/**

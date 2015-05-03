@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-import controller.TileTypeController;
+import controllers.TileTypeController;
 
 public class TileTypeView  extends JPanel{
 	/**

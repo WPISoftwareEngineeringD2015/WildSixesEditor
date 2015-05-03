@@ -22,7 +22,7 @@ public class Application extends JFrame{
 	
 	public void initialize() {
 		setTitle("Wild Sixes Level Builder");
-		builderView = new BuilderView(model);
+		builderView = new BuilderView(model, this);
 		setContentPane(builderView);
 		setSize(850, 750);
 	}

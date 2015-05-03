@@ -18,11 +18,13 @@ public class BuilderView extends JPanel{
 	private static final long serialVersionUID = 4991952175738013520L;
 	Model model;
 	BuilderPanel builderPanel;
+	private static Application builder;
 
-	public BuilderView(Model m) {
+	public BuilderView(Model m, Application builder) {
 		this.model = m;
+		BuilderView.builder = builder;
 		
-		builderPanel = new BuilderPanel(model);
+		builderPanel = new BuilderPanel(model, builder);
 		
 		MenuBarView menu = new MenuBarView(model, builderPanel);
 

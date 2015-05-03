@@ -9,8 +9,9 @@ import javax.swing.JSlider;
 
 import kiviuq.entities.GameMode;
 import model.Model;
-import controller.BuilderPanelClose;
-import controller.SaveController;
+import controllers.BuilderPanelClose;
+import controllers.PreviewController;
+import controllers.SaveController;
 
 /**
  * BuilderPanel is an aggregate the components related to a particular level that is currently being built by the level builder
@@ -28,6 +29,7 @@ public class BuilderPanel extends JPanel {
 	BoardView board;
 	TimeView timeView;
 	NumberMovesView numberMovesView;
+	private Application builder;
 	
 	/**
 	 * 
@@ -38,7 +40,7 @@ public class BuilderPanel extends JPanel {
 	 * Constructor method for BuilderPanel
 	 * @param m Model object for the builder
 	 */
-	public BuilderPanel(Model m) {
+	public BuilderPanel(Model m, Application builder) {
 		this.model = m;
 		BuilderPanelClose closeController = new BuilderPanelClose(model, this);
 		setLayout(null);
@@ -57,6 +59,8 @@ public class BuilderPanel extends JPanel {
 		JButton btnPreview = new JButton("Preview");
 		btnPreview.setBounds(663, 576, 89, 23);
 		add(btnPreview);
+		PreviewController previewController = new PreviewController(model, builder);
+		btnPreview.addActionListener(previewController);
 		
 		scores = new ScoreView(model);
 		scores.setBounds(569, 64, 150, 86);
@@ -168,6 +172,14 @@ public class BuilderPanel extends JPanel {
 	 */
 	public ScoreView getScoreView() {
 		return this.scores;
+	}
+	
+	/**
+	 * get method for Application builder attribute
+	 * @return Application builder
+	 */
+	public Application getBuilder() {
+		return this.builder;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package controller;
+package controllers;
 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;

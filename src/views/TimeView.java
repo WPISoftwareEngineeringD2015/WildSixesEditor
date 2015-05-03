@@ -9,7 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 
 import model.Model;
-import controller.UpdateTimeLimitController;
+import controllers.UpdateTimeLimitController;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**

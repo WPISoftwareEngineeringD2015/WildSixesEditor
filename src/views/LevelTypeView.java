@@ -11,8 +11,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import kiviuq.entities.GameMode;
 import model.Model;
-import controller.BackButtonController;
-import controller.GameModeButtonsController;
+import controllers.BackButtonController;
+import controllers.GameModeButtonsController;
 
 public class LevelTypeView extends JPanel{
 	/**
