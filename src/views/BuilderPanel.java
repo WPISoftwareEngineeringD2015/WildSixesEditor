@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
 
 import kiviuq.entities.GameMode;
 import model.Model;
@@ -29,6 +28,7 @@ public class BuilderPanel extends JPanel {
 	BoardView board;
 	TimeView timeView;
 	NumberMovesView numberMovesView;
+	DifficultyView difficultyView;
 	private Application builder;
 	
 	/**
@@ -51,19 +51,19 @@ public class BuilderPanel extends JPanel {
 		btnX.addActionListener(closeController);
 		
 		JButton btnSave = new JButton("Save");
-		btnSave.setBounds(566, 575, 89, 23);
+		btnSave.setBounds(566, 596, 89, 23);
 		add(btnSave);
 		SaveController saveFile = new SaveController(model, this);
 		btnSave.addActionListener(saveFile);
 		
 		JButton btnPreview = new JButton("Preview");
-		btnPreview.setBounds(663, 576, 89, 23);
+		btnPreview.setBounds(663, 596, 89, 23);
 		add(btnPreview);
 		PreviewController previewController = new PreviewController(model, builder);
 		btnPreview.addActionListener(previewController);
 		
-		scores = new ScoreView(model);
-		scores.setBounds(569, 64, 150, 86);
+		scores = new ScoreView(model, this);
+		scores.setBounds(569, 84, 150, 130);
 		add(scores);
 		
 		//Displays the 9x9 grid of tiles
@@ -76,7 +76,7 @@ public class BuilderPanel extends JPanel {
 		levelTypeLabel.setBounds(10, 34, 207, 14);
 		add(levelTypeLabel);
 		
-		JSlider slider = new JSlider();
+		/*JSlider slider = new JSlider();
 		slider.setValue(3);
 		slider.setPaintLabels(true);
 		slider.setMinimum(1);
@@ -84,28 +84,30 @@ public class BuilderPanel extends JPanel {
 		slider.setMinorTickSpacing(1);
 		slider.setMaximum(5);
 		slider.setBounds(566, 538, 200, 26);
-		add(slider);
+		add(slider);*/
 		
 		JLabel lblSelectDifficulty = new JLabel("Select Difficulty");
 		lblSelectDifficulty.setBounds(582, 513, 110, 14);
 		add(lblSelectDifficulty);
 		
-		
+		difficultyView = new DifficultyView(model);
+		difficultyView.setBounds(566, 528, 290, 60);
+		add(difficultyView);
 		
 		JLabel lblAddableComponents = new JLabel("Addable Components");
-		lblAddableComponents.setBounds(569, 255, 150, 14);
+		lblAddableComponents.setBounds(569, 275, 150, 14);
 		add(lblAddableComponents);
 		
 		addableComponents = new AddableView(model);
-		addableComponents.setBounds(569, 272, 150, 218);
+		addableComponents.setBounds(569, 292, 150, 218);
 		add(addableComponents);
 		
 		timeView = new TimeView(model);
-		timeView.setBounds(579, 161, 162, 73);
+		timeView.setBounds(579, 214, 162, 73);
 		add(timeView);
 		
 		numberMovesView = new NumberMovesView(model);
-		numberMovesView.setBounds(584, 158, 157, 76);
+		numberMovesView.setBounds(579, 214, 157, 76);
 		add(numberMovesView);
 		
 	}
@@ -155,6 +157,9 @@ public class BuilderPanel extends JPanel {
 		levelTypeLabel.setText("Type: ".concat(currentMode.toString()));
 		addableComponents.repaint();
 		scores.repaint();
+		difficultyView.repaint();
+		numberMovesView.repaint();
+		timeView.repaint();
 	}
 	
 	

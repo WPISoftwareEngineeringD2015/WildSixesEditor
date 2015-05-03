@@ -2,13 +2,16 @@ package views;
 
 import java.awt.Graphics;
 
-import javax.swing.JPanel;
-
-import model.Model;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTextField;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+import model.Model;
+import controllers.UpdateStarCriteria;
 
 /**
  * ScoreView class part of the boundary objects
@@ -27,14 +30,16 @@ public class ScoreView extends JPanel{
 	JTextField threeStars;
 	JTextField twoStars;
 	JTextField oneStars;
+	BuilderPanel panel;
 	
 	
 	/**
 	 * Constructor for ScoreView class
 	 * @param m Model object for builder
 	 */
-	public ScoreView(Model m) {
+	public ScoreView(Model m, BuilderPanel p) {
 		this.model = m;
+		this.panel = p;
 		
 		threeStars = new JTextField();
 		threeStars.setColumns(10);
@@ -50,6 +55,11 @@ public class ScoreView extends JPanel{
 		JLabel label_1 = new JLabel("\u2605\u2605\u2606");
 		
 		JLabel label_2 = new JLabel("\u2605\u2606\u2606");
+		
+		JButton btnUpdate = new JButton("Update");
+		UpdateStarCriteria updateStarCriteria = new UpdateStarCriteria(model, panel);
+		btnUpdate.addActionListener(updateStarCriteria);
+		
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -67,14 +77,15 @@ public class ScoreView extends JPanel{
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(label_2)
 							.addGap(6)
-							.addComponent(oneStars, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(302, Short.MAX_VALUE))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnUpdate)
+								.addComponent(oneStars, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(316, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGap(1)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(3)
@@ -92,7 +103,9 @@ public class ScoreView extends JPanel{
 							.addGap(3)
 							.addComponent(label_2))
 						.addComponent(oneStars, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(207, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnUpdate)
+					.addContainerGap(178, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		
@@ -133,6 +146,4 @@ public class ScoreView extends JPanel{
 	public JTextField getOneStars() {
 		return this.oneStars;
 	}
-	
-	
 }
