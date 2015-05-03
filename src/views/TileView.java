@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import kiviuq.entities.Tile;
 import model.Model;
-import model.Tile;
 
 public class TileView extends JPanel{
 

@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 
+import kiviuq.entities.TileType;
 import model.Model;
-import model.TileType;
 import controller.AddableButtonsController;
 /**
  * AddableView class part of the boundary objects

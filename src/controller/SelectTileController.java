@@ -3,8 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
+import kiviuq.entities.*;
 import model.Model;
-import model.TileType;
 import views.BoardView;
 import views.TileView;
 
@@ -59,7 +59,7 @@ public class SelectTileController implements UndoableEdits {
 		//TileView sourcePanel = (TileView) e.getSource();
 	//	boardView.getBoard().resetTileSum();
 		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
-		model.getBoard().resetTiles();
+		model.getBoard().unselectTiles();
 		boardView.repaintTiles();
 	}
 

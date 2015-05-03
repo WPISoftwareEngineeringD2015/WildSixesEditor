@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-import model.GameMode;
+import kiviuq.entities.GameMode;
 import model.Model;
 import controller.BuilderPanelClose;
 import controller.SaveController;

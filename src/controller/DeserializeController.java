@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import model.LevelTemplate;
+import kiviuq.entities.LevelTemplate;
 import model.Model;
 import views.Application;
 import views.BoardView;

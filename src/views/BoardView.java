@@ -2,13 +2,10 @@ package views;
 
 import java.awt.Graphics;
 import java.awt.GridLayout;
-
 import javax.swing.JPanel;
-
+import kiviuq.entities.Tile;
 import model.Model;
-import model.Tile;
 import controller.SelectTileController;
-
 
 public class BoardView extends JPanel {
 	Model model;

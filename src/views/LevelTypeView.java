@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import model.GameMode;
+import kiviuq.entities.GameMode;
 import model.Model;
 import controller.BackButtonController;
 import controller.GameModeButtonsController;

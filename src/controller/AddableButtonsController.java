@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import kiviuq.entities.TileType;
 import model.Model;
-import model.TileType;
 import views.AddableView;
 /**
  * AddableButtonsController updates the selected TileType "addable" tile on the builder 

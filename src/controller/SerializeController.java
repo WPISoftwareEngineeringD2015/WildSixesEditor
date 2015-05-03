@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import model.LevelTemplate;
+import kiviuq.entities.LevelTemplate;
 import model.Model;
 
 public class SerializeController {

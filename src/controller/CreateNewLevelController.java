@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.LevelTemplate;
+import kiviuq.entities.LevelTemplate;
 import model.Model;
 import views.Application;
 import views.BoardView;

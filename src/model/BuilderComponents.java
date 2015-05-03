@@ -1,5 +1,7 @@
 package model;
 
+import kiviuq.entities.TileType;
+
 /**
  * BuildableComponents maintains information relevant to the builder.
  * It maintains what "Addable" tile is currently selected

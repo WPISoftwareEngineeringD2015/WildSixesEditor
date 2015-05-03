@@ -1,5 +1,8 @@
 package model;
 
+import kiviuq.entities.Board;
+import kiviuq.entities.LevelTemplate;
+
 /**
  * Model class for the level builder
  * Aggregate of the entity classes
@@ -20,7 +23,7 @@ public class Model {
 	public Model() {
 		this.temp = new LevelTemplate();
 		this.files = new FileIO();
-		this.board = new Board(temp);
+		this.board = Board.MakeBoardFromTemplate(temp);
 		this.components = new BuilderComponents();
 	}
 	
@@ -54,7 +57,7 @@ public class Model {
 	 */
 	public void setLevelTemplate(LevelTemplate newLT) {
 		this.temp = newLT;
-		this.board = new Board(temp);
+		this.board = Board.MakeBoardFromTemplate(temp);
 	}
 	
 	/**
