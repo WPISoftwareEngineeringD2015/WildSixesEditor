@@ -11,6 +11,7 @@ import model.Model;
 import controllers.BuilderPanelClose;
 import controllers.PreviewController;
 import controllers.SaveController;
+import controllers.UndoController;
 
 /**
  * BuilderPanel is an aggregate the components related to a particular level that is currently being built by the level builder
@@ -63,6 +64,12 @@ public class BuilderPanel extends JPanel {
 		PreviewController previewController = new PreviewController(model, builder);
 		btnPreview.addActionListener(previewController);
 		
+		JButton btnUndo = new JButton("Undo");
+		btnUndo.setBounds(265, 600, 89, 23);
+		add(btnUndo);
+		UndoController undoController = new UndoController(model);
+		btnUndo.addActionListener(undoController);
+		
 		scores = new ScoreView(model, this);
 		scores.setBounds(569, 84, 150, 130);
 		add(scores);
@@ -78,11 +85,11 @@ public class BuilderPanel extends JPanel {
 		add(levelTypeLabel);
 		
 		JLabel lblSelectDifficulty = new JLabel("Select Difficulty");
-		lblSelectDifficulty.setBounds(582, 513, 110, 14);
+		lblSelectDifficulty.setBounds(587, 523, 110, 14);
 		add(lblSelectDifficulty);
 		
 		difficultyView = new DifficultyView(model);
-		difficultyView.setBounds(566, 528, 290, 60);
+		difficultyView.setBounds(566, 538, 290, 60);
 		add(difficultyView);
 		
 		JLabel lblAddableComponents = new JLabel("Addable Components");
@@ -98,7 +105,7 @@ public class BuilderPanel extends JPanel {
 		add(timeView);
 		
 		numberMovesView = new NumberMovesView(model);
-		numberMovesView.setBounds(579, 214, 157, 76);
+		numberMovesView.setBounds(579, 214, 157, 60);
 		add(numberMovesView);
 		
 		multiplierConstView = new MultiplierConstView(model, this);

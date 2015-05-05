@@ -29,7 +29,7 @@ public class SelectTileController implements UndoableEdits {
 	public SelectTileController(Model m, BoardView b) {
 		this.model = m;
 		this.boardView = b;
-		this.previousMove = m.getBuilderComponents().getLastMove();
+		//this.previousMove = m.getBuilderComponents().getLastMove();
 		//this.moveType = boardView.getBoard().getMoveType();
 	}
 
@@ -47,12 +47,14 @@ public class SelectTileController implements UndoableEdits {
 	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
+		this.previousMove = model.getBuilderComponents().getLastMove();
 		isMousePressed = true;
 		sourcePanel = (TileView) e.getSource();
 		previousType = sourcePanel.getTile().getType();
 		typeToSet = model.getBuilderComponents().getCurrentAddable();
 		sourcePanel.getTile().setType(typeToSet);
 		model.getBuilderComponents().setLastMove(this); // set this as the last move performed in the level builder
+		model.getBuilderComponents().setUndoneMove(null); // set the undone move to null as there is now a move performed after the undone
 		boardView.repaintTiles();
 	}
 	
