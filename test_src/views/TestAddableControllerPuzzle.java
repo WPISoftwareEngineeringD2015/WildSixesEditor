@@ -38,13 +38,15 @@ public class TestAddableControllerPuzzle extends TestCase {
 	}
 	
 	public void testPlaceNullTilePuzzle(){
-		m.getBuilderComponents().setCurrentAddable(TileType.Null);
-		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
-		board.repaint();
 		m.getBuilderComponents().setCurrentAddable(TileType.Number);
 		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
 		board.repaint();
-		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Number");
+		
+		m.getBuilderComponents().setCurrentAddable(TileType.Null);
+		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
+		board.repaint();
+		
+		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Null");
 	}
 	
 	public void testAddableViewPuzzle(){

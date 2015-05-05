@@ -1,4 +1,4 @@
-package views;
+/*package views;
 
 import junit.framework.TestCase;
 
@@ -13,3 +13,5 @@ public class TestBoardView extends TestCase {
 	}
 
 }
+
+*/
