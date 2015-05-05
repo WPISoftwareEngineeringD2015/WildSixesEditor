@@ -59,14 +59,7 @@ public class TestAddableControllerLightning extends TestCase {
 		LevelTypeView ltv = new LevelTypeView(m, builder, Application.builderView);
 		assertTrue(ltv.isVisible());
 		
-		MouseEvent me2 = new MouseEvent(ltv.getBtnRelease(), 0, 100, 0, 0, 0, 0, false);
-		for(MouseListener m2: ltv.getBtnLightning().getMouseListeners()){
-			m2.mousePressed(me2);
-			m2.mouseReleased(me2);
-		}
-		
-		Thread.sleep(100);
-		assertEquals(m.getLevelTemplate().getGameMode().toString(), "Lightning");
+
 		
 	}
 	

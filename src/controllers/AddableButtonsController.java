@@ -32,47 +32,15 @@ public class AddableButtonsController implements MouseListener{
 
 
 	/**
-	 * Override mouseClicked method 
-	 * Changes the color of the "addable" JPanels to display which "addable" is currently selected 
+	 * No action on mouse clicked
 	 */
+	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		switch(typeToAdd) {
-		case Null:
-			model.getBuilderComponents().setCurrentAddable(TileType.Null);
-			view.getNullTile().setBackground(new Color(10));
-			view.getNumberTile().setBackground(new Color(240, 240, 240));
-			view.getReleaseTile().setBackground(new Color(240, 240, 240));
-			view.getSixTile().setBackground(new Color(240, 240, 240));
-			view.repaint();
-			break;
-		case Number:
-			model.getBuilderComponents().setCurrentAddable(TileType.Number);
-			view.getNumberTile().setBackground(new Color(10));
-			view.getNullTile().setBackground(new Color(240, 240, 240));
-			view.getReleaseTile().setBackground(new Color(240, 240, 240));
-			view.getSixTile().setBackground(new Color(240, 240, 240));
-			view.repaint();
-			break;
-		case Release:
-			model.getBuilderComponents().setCurrentAddable(TileType.Release);
-			view.getNullTile().setBackground(new Color(240, 240, 240));
-			view.getNumberTile().setBackground(new Color(240, 240, 240));
-			view.getReleaseTile().setBackground(new Color(10));
-			view.getSixTile().setBackground(new Color(240, 240, 240));
-			view.repaint();
-			break;
-		case Block:
-			model.getBuilderComponents().setCurrentAddable(TileType.Block);
-			view.getNullTile().setBackground(new Color(240, 240, 240));
-			view.getNumberTile().setBackground(new Color(240, 240, 240));
-			view.getReleaseTile().setBackground(new Color(240, 240, 240));
-			view.getSixTile().setBackground(new Color(10));
-			view.repaint();
-			break;
-		}
+
 	}
 
+	
 	/**
 	 * No action performed with mouseEnter
 	 */
