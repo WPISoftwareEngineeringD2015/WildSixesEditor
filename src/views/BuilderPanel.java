@@ -29,6 +29,7 @@ public class BuilderPanel extends JPanel {
 	TimeView timeView;
 	NumberMovesView numberMovesView;
 	DifficultyView difficultyView;
+	MultiplierConstView multiplierConstView;
 	private Application builder;
 	
 	/**
@@ -51,13 +52,13 @@ public class BuilderPanel extends JPanel {
 		btnX.addActionListener(closeController);
 		
 		JButton btnSave = new JButton("Save");
-		btnSave.setBounds(566, 596, 89, 23);
+		btnSave.setBounds(464, 600, 89, 23);
 		add(btnSave);
 		SaveController saveFile = new SaveController(model, this);
 		btnSave.addActionListener(saveFile);
 		
 		JButton btnPreview = new JButton("Preview");
-		btnPreview.setBounds(663, 596, 89, 23);
+		btnPreview.setBounds(365, 600, 89, 23);
 		add(btnPreview);
 		PreviewController previewController = new PreviewController(model, builder);
 		btnPreview.addActionListener(previewController);
@@ -76,16 +77,6 @@ public class BuilderPanel extends JPanel {
 		levelTypeLabel.setBounds(10, 34, 207, 14);
 		add(levelTypeLabel);
 		
-		/*JSlider slider = new JSlider();
-		slider.setValue(3);
-		slider.setPaintLabels(true);
-		slider.setMinimum(1);
-		slider.setPaintTicks(true);
-		slider.setMinorTickSpacing(1);
-		slider.setMaximum(5);
-		slider.setBounds(566, 538, 200, 26);
-		add(slider);*/
-		
 		JLabel lblSelectDifficulty = new JLabel("Select Difficulty");
 		lblSelectDifficulty.setBounds(582, 513, 110, 14);
 		add(lblSelectDifficulty);
@@ -99,16 +90,20 @@ public class BuilderPanel extends JPanel {
 		add(lblAddableComponents);
 		
 		addableComponents = new AddableView(model);
-		addableComponents.setBounds(569, 292, 150, 218);
+		addableComponents.setBounds(569, 300, 150, 218);
 		add(addableComponents);
 		
 		timeView = new TimeView(model);
-		timeView.setBounds(579, 214, 162, 73);
+		timeView.setBounds(579, 214, 162, 60);
 		add(timeView);
 		
 		numberMovesView = new NumberMovesView(model);
 		numberMovesView.setBounds(579, 214, 157, 76);
 		add(numberMovesView);
+		
+		multiplierConstView = new MultiplierConstView(model, this);
+		multiplierConstView.setBounds(549, 587, 296, 100);
+		add(multiplierConstView);
 		
 	}
 	
