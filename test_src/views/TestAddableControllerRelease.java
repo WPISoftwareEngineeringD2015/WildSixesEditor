@@ -1,5 +1,7 @@
 package views;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 
 import model.Model;
@@ -54,21 +56,26 @@ public class TestAddableControllerRelease extends TestCase {
 		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Release");
 	}
 
-	/*
-	public void testChangeToReleaseGUI(){
-		MouseEvent me1 = new MouseEvent(Application.builderView.menu.mntmEditLevelType);, 0, 100, 0, 0, 0, 0, false);
-		for(MouseListener ml: Application.builderView.menu.mntmEditLevelType.getMouseListeners()){
+	
+	public void testChangeToReleaseGUI() throws InterruptedException{
+		MouseEvent me1 = new MouseEvent(Application.builderView.menu.getMntmEditLevelType(), 0, 100, 0, 0, 0, 0, false);
+		for(MouseListener ml: Application.builderView.menu.getMntmEditLevelType().getMouseListeners()){
 			ml.mouseClicked(me1);
 		}
 		
-		MouseEvent me2 = new MouseEvent(Application.builderView.builderPanel.board.tvs[0][0], 0, 100, 0, 0, 0, 0, false);
-		for(MouseListener m2: Application.builderView.builderPanel.board.tvs[0][0].getMouseListeners()){
+		Thread.sleep(100);
+		LevelTypeView ltv = new LevelTypeView(m, builder, Application.builderView);
+		assertTrue(ltv.isVisible());
+		
+		MouseEvent me2 = new MouseEvent(ltv.getBtnRelease(), 0, 100, 0, 0, 0, 0, false);
+		for(MouseListener m2: ltv.getBtnRelease().getMouseListeners()){
 			m2.mousePressed(me2);
-			m2.mouseReleased(me2);
+			//m2.mouseReleased(me2);
 		}
-		assertEquals(Application.builderView.builderPanel.board.tvs[0][0].tile.getType().toString(), "Number");
+		
+		Thread.sleep(100);
+		assertEquals(m.getLevelTemplate().getGameMode().toString(), "Release");
+		
 	}
-	*/
-
 	
 }

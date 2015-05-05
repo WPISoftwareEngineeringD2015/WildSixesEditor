@@ -59,9 +59,8 @@ public class TestAddableControllerPuzzle extends TestCase {
 		MouseEvent me2 = new MouseEvent(Application.builderView.builderPanel.board.tvs[0][0], 0, 100, 0, 0, 0, 0, false);
 		for(MouseListener m2: Application.builderView.builderPanel.board.tvs[0][0].getMouseListeners()){
 			m2.mousePressed(me2);
-			m2.mouseReleased(me2);
+			//m2.mouseReleased(me2);
 		}
-		
 		
 		assertEquals(Application.builderView.builderPanel.board.tvs[0][0].tile.getType().toString(), "Number");
 	}
