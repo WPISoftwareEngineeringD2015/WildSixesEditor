@@ -10,6 +10,7 @@ import javax.swing.JSlider;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import model.Model;
+import controllers.UpdateMultiplierConstController;
 
 public class MultiplierConstView extends JPanel{
 	Model model;
@@ -21,7 +22,10 @@ public class MultiplierConstView extends JPanel{
 		this.panel = p;
 		
 		multiplierConst = new JSlider();
-		multiplierConst.setToolTipText("Select Difficulty\r\n 0 represents the easiest \r\n100 represents the hardest");
+		UpdateMultiplierConstController updateMultiplierConstController = new UpdateMultiplierConstController(model);
+		multiplierConst.addChangeListener(updateMultiplierConstController);
+		
+		multiplierConst.setToolTipText("Select Multiplier Frequency 100 gives the most x3 multipliers while 0 gives no multipliers");
 		multiplierConst.setSnapToTicks(true);
 		multiplierConst.setPaintTicks(true);
 		multiplierConst.setPaintLabels(true);

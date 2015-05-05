@@ -1,6 +1,7 @@
 package model;
 
 import kiviuq.entities.TileType;
+import controllers.UndoableEdits;
 
 /**
  * BuildableComponents maintains information relevant to the builder.
@@ -13,12 +14,14 @@ import kiviuq.entities.TileType;
 
 public class BuilderComponents {
 	TileType currentAddable;
+	UndoableEdits lastMove;
 	
 	/**
 	 * Constructor for BuilderComponents class
 	 */
 	public BuilderComponents() {
 		this.currentAddable = TileType.Number;
+		this.lastMove = null;
 	}
 
 	/**
@@ -35,6 +38,22 @@ public class BuilderComponents {
 	 */
 	public TileType getCurrentAddable() {
 		return this.currentAddable;
+	}
+	
+	/**
+	 * get method for UndoableEdits lastMove attribute
+	 * @return returns UndoableEdits lastMove
+	 */
+	public UndoableEdits getLastMove() {
+		return this.lastMove;
+	}
+	
+	/**
+	 * set method for UndoableEdits lastMove attribute
+	 * @param lastMove value to set as the UndoableEdits lastMove attribute
+	 */
+	public void setLastMove(UndoableEdits lastMove) {
+		this.lastMove = lastMove;
 	}
 	
 }

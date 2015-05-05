@@ -30,7 +30,6 @@ public class UpdateMultiplierConstController implements ChangeListener{
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		JSlider multiplierConst = (JSlider) e.getSource();
-		
 		int newMultConst = multiplierConst.getValue();
 		model.getLevelTemplate().setMultConst(newMultConst);
 	}

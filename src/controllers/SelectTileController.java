@@ -7,57 +7,57 @@ import kiviuq.entities.*;
 import model.Model;
 import views.BoardView;
 import views.TileView;
-
+/**
+ * @author 
+ * @author alyssagraham
+ *
+ */
 public class SelectTileController implements UndoableEdits {
 	Model model;
 	BoardView boardView;
-	//MoveType moveType;
 	boolean isMousePressed;
+	UndoableEdits previousMove;
+	TileView sourcePanel;
+	TileType typeToSet;
+	TileType previousType;
 
+	/**
+	 * Constructor for SelectTileController class
+	 * @param m Model for level builder
+	 * @param b builder panel for level builder
+	 */
 	public SelectTileController(Model m, BoardView b) {
 		this.model = m;
 		this.boardView = b;
+		this.previousMove = m.getBuilderComponents().getLastMove();
 		//this.moveType = boardView.getBoard().getMoveType();
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
-
-	/*@Override
-	public void mouseEntered(MouseEvent e) {
-		TileView sourcePanel = (TileView) e.getSource();
-		if(isMousePressed) {
-			sourcePanel.getTile().select();
-			sourcePanel.repaint();
-			//boardView.getBoard().addTileSum(sourcePanel.getTile().getNumber());
-		}
-	}*/
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 
+	
+	/**
+	 * mousePressed method for Selecting tiles on the board in the level builder
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		isMousePressed = true;
-		TileView sourcePanel = (TileView) e.getSource();
-		TileType typeToSet = model.getBuilderComponents().getCurrentAddable();
+		sourcePanel = (TileView) e.getSource();
+		previousType = sourcePanel.getTile().getType();
+		typeToSet = model.getBuilderComponents().getCurrentAddable();
 		sourcePanel.getTile().setType(typeToSet);
+		model.getBuilderComponents().setLastMove(this); // set this as the last move performed in the level builder
 		boardView.repaintTiles();
-		//sourcePanel.repaint();
-		//boardView.getBoard().addTileSum(sourcePanel.getTile().getNumber());
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent e) {
-//		isMousePressed = false;
-		//TileView sourcePanel = (TileView) e.getSource();
-	//	boardView.getBoard().resetTileSum();
 		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
 		model.getBoard().unselectTiles();
 		boardView.repaintTiles();
@@ -65,25 +65,29 @@ public class SelectTileController implements UndoableEdits {
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void undo() {
-		// TODO Auto-generated method stub
-		
+		sourcePanel.getTile().setType(previousType);
+		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
+		model.getBoard().unselectTiles();
+		boardView.repaintTiles();
+		model.getBuilderComponents().setLastMove(previousMove); // return the move before this to the builderComponents class
 	}
 
 	@Override
 	public void redo() {
-		// TODO Auto-generated method stub
-		
+		sourcePanel.getTile().setType(typeToSet);
+		model.getBuilderComponents().setLastMove(this); // set this as the last move performed in the level builder
+		boardView.repaintTiles();
+		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
+		model.getBoard().unselectTiles();
+		boardView.repaintTiles();
 	}
 }
