@@ -14,18 +14,19 @@ import model.Model;
 public class MultiplierConstView extends JPanel{
 	Model model;
 	BuilderPanel panel;
+	JSlider multiplierConst;
 	
 	public MultiplierConstView(Model m, BuilderPanel p) {
 		this.model = m;
 		this.panel = p;
 		
-		JSlider slider = new JSlider();
-		slider.setToolTipText("Select Difficulty\r\n 0 represents the easiest \r\n100 represents the hardest");
-		slider.setSnapToTicks(true);
-		slider.setPaintTicks(true);
-		slider.setPaintLabels(true);
-		slider.setMinorTickSpacing(10);
-		slider.setMajorTickSpacing(20);
+		multiplierConst = new JSlider();
+		multiplierConst.setToolTipText("Select Difficulty\r\n 0 represents the easiest \r\n100 represents the hardest");
+		multiplierConst.setSnapToTicks(true);
+		multiplierConst.setPaintTicks(true);
+		multiplierConst.setPaintLabels(true);
+		multiplierConst.setMinorTickSpacing(10);
+		multiplierConst.setMajorTickSpacing(20);
 		
 		JLabel lblLess = new JLabel("less");
 		
@@ -41,7 +42,7 @@ public class MultiplierConstView extends JPanel{
 							.addGap(21)
 							.addComponent(lblLess, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(slider, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)
+							.addComponent(multiplierConst, GroupLayout.PREFERRED_SIZE, 174, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(lblMore, GroupLayout.PREFERRED_SIZE, 83, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
@@ -61,7 +62,7 @@ public class MultiplierConstView extends JPanel{
 							.addComponent(lblMore))
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 							.addComponent(lblLess)
-							.addComponent(slider, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(multiplierConst, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
@@ -76,5 +77,6 @@ public class MultiplierConstView extends JPanel{
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		multiplierConst.setValue(model.getLevelTemplate().getMultConst());
 	}
 }

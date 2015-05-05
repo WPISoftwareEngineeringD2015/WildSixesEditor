@@ -13,7 +13,12 @@ import kiviuq.entities.GameMode;
 import model.Model;
 import controllers.BackButtonController;
 import controllers.GameModeButtonsController;
-
+/**
+ * Boundary for selecting a new level type in the level builder
+ * @author Gabe Bell
+ * @author alyssagraham
+ *
+ */
 public class LevelTypeView extends JPanel{
 	/**
 	 * 
@@ -28,7 +33,12 @@ public class LevelTypeView extends JPanel{
 	JFrame selectFrame;
 	JPanel builderPanel;
 	
-	
+	/**
+	 * Constructor for LevelTypeView class
+	 * @param m Model object for level builder
+	 * @param s JFrame to return to upon making a selection or going back
+	 * @param p Builder panel for level builder
+	 */
 	public LevelTypeView(Model m, JFrame s, JPanel p) {
 		this.model = m;
 		this.selectFrame = s;
@@ -90,14 +100,45 @@ public class LevelTypeView extends JPanel{
 	}
 	
 	
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+	/**
+	 * get method for JButton btnPuzzle attribute
+	 * @return returns JButton btnPuzzle 
+	 */
+	public JButton getBtnPuzzle() {
+		return this.btnPuzzle;
 	}
 	
+	/**
+	 * get method for JButton btnElimination attribute
+	 * @return returns JButton btnElimination
+	 */
+	public JButton getBtnElimination() {
+		return this.btnElimination;
+	}
 	
+	/**
+	 * get method for JButton btnRelease attribtue
+	 * @return returns JButton btnRelease
+	 */
+	public JButton getBtnRelease() {
+		return this.btnRelease;
+	}
 	
+	/**
+	 * get method for JButton btnLightning attribute
+	 * @return returns JButton btnLightning
+	 */
+	public JButton getBtnLightning() {
+		return this.btnLightning;
+	}
 	
+	/**
+	 * get method for JButton btnBack attribute
+	 * @return returns JButton btnBack
+	 */
+	public JButton getBtnBack() {
+		return this.btnBack;
+	}
 	
 	
 	
