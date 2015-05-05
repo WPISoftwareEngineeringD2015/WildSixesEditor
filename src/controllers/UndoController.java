@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 
 import model.Model;
 
-
-
 public class UndoController implements ActionListener{
 	Model model;
 	UndoableEdits lastMove;

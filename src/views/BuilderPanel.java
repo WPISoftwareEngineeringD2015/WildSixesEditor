@@ -32,6 +32,9 @@ public class BuilderPanel extends JPanel {
 	DifficultyView difficultyView;
 	MultiplierConstView multiplierConstView;
 	private Application builder;
+	JButton btnSave;
+	JButton btnPreview;
+	JButton btnUndo;
 	
 	/**
 	 * 
@@ -52,19 +55,19 @@ public class BuilderPanel extends JPanel {
 		add(btnX);
 		btnX.addActionListener(closeController);
 		
-		JButton btnSave = new JButton("Save");
+		btnSave = new JButton("Save");
 		btnSave.setBounds(464, 600, 89, 23);
 		add(btnSave);
 		SaveController saveFile = new SaveController(model, this);
 		btnSave.addActionListener(saveFile);
 		
-		JButton btnPreview = new JButton("Preview");
+		btnPreview = new JButton("Preview");
 		btnPreview.setBounds(365, 600, 89, 23);
 		add(btnPreview);
 		PreviewController previewController = new PreviewController(model, builder);
 		btnPreview.addActionListener(previewController);
 		
-		JButton btnUndo = new JButton("Undo");
+		btnUndo = new JButton("Undo");
 		btnUndo.setBounds(265, 600, 89, 23);
 		add(btnUndo);
 		UndoController undoController = new UndoController(model);
@@ -189,5 +192,8 @@ public class BuilderPanel extends JPanel {
 		return this.builder;
 	}
 	
+	public AddableView getAddableComponents() {
+		return this.addableComponents;
+	}
 	
 }
