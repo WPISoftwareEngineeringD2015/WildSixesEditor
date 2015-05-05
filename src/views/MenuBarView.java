@@ -22,6 +22,8 @@ public class MenuBarView extends JPanel{
 	Model model;
 	BuilderPanel panel;
 	JMenuItem mntmEditLevelType;
+	JMenuItem mntmEditExistingLevel;
+	JMenu mnNewMenu;
 	
 	public MenuBarView(Model m, BuilderPanel b) {
 		this.model = m;
@@ -47,13 +49,13 @@ public class MenuBarView extends JPanel{
 		CreateNewLevelController createNew = new CreateNewLevelController(model);
 		mntmCreateNewLevel.addActionListener(createNew);
 		
-		JMenuItem mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
+		mntmEditExistingLevel = new JMenuItem("Edit Existing Level");
 		mntmEditExistingLevel.setIcon(new ImageIcon(BuilderPanel.class.getResource("/javax/swing/plaf/metal/icons/ocean/directory.gif")));
 		mnFile.add(mntmEditExistingLevel);
 		EditLevelController editLevel = new EditLevelController(model);
 		mntmEditExistingLevel.addActionListener(editLevel);
 		
-		JMenu mnNewMenu = new JMenu("Edit");
+		mnNewMenu = new JMenu("Edit");
 		menuBar.add(mnNewMenu);
 		
 		mntmEditLevelType = new JMenuItem("Edit Level Type");
@@ -68,7 +70,4 @@ public class MenuBarView extends JPanel{
 		super.paintComponent(g);
 		
 	}
-	
-	
-	
 }
