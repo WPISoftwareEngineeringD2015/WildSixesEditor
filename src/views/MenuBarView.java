@@ -21,6 +21,7 @@ public class MenuBarView extends JPanel{
 	private static final long serialVersionUID = -6250157798725563642L;
 	Model model;
 	BuilderPanel panel;
+	JMenuItem mntmEditLevelType;
 	
 	public MenuBarView(Model m, BuilderPanel b) {
 		this.model = m;
@@ -55,7 +56,7 @@ public class MenuBarView extends JPanel{
 		JMenu mnNewMenu = new JMenu("Edit");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmEditLevelType = new JMenuItem("Edit Level Type");
+		mntmEditLevelType = new JMenuItem("Edit Level Type");
 		mnNewMenu.add(mntmEditLevelType);
 		ChangeLevelTypeController editLevelType = new ChangeLevelTypeController(panel, model);
 		mntmEditLevelType.addActionListener(editLevelType);
