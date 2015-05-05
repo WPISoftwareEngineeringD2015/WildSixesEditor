@@ -15,6 +15,7 @@ import controllers.UndoableEdits;
 public class BuilderComponents {
 	TileType currentAddable;
 	UndoableEdits lastMove;
+	UndoableEdits 
 	
 	/**
 	 * Constructor for BuilderComponents class

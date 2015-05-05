@@ -72,15 +72,21 @@ public class SelectTileController implements UndoableEdits {
 		
 	}
 
+	/**
+	 * Undo function for selecting a tile
+	 */
 	@Override
 	public void undo() {
 		sourcePanel.getTile().setType(previousType);
 		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
 		model.getBoard().unselectTiles();
 		boardView.repaintTiles();
-		model.getBuilderComponents().setLastMove(previousMove); // return the move before this to the builderComponents class
+		//model.getBuilderComponents().setLastMove(previousMove); // return the move before this to the builderComponents class
 	}
 
+	/**
+	 * Redo function for selecting a tile
+	 */
 	@Override
 	public void redo() {
 		sourcePanel.getTile().setType(typeToSet);
@@ -89,5 +95,10 @@ public class SelectTileController implements UndoableEdits {
 		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
 		model.getBoard().unselectTiles();
 		boardView.repaintTiles();
+	}
+
+	@Override
+	public UndoableEdits getPreviousMove() {
+		return previousMove;
 	}
 }

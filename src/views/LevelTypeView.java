@@ -58,7 +58,7 @@ public class LevelTypeView extends JPanel{
 		GameModeButtonsController eliminationController = new GameModeButtonsController(selectFrame, builderPanel, model, GameMode.Elimination);
 		btnElimination.addActionListener(eliminationController);
 		
-		JButton btnRelease = new JButton("Release");
+		btnRelease = new JButton("Release");
 		GameModeButtonsController releaseController = new GameModeButtonsController(selectFrame, builderPanel, model, GameMode.Release);
 		btnRelease.addActionListener(releaseController);
 		

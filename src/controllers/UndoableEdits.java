@@ -8,4 +8,6 @@ public interface UndoableEdits extends ActionListener, MouseListener{
 	public void undo();
 	
 	public void redo();
+	
+	public UndoableEdits getPreviousMove();
 }
