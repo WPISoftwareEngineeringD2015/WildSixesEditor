@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 import kiviuq.entities.GameMode;
 import kiviuq.entities.TileType;
 
-public class TestAddableControllerLightning extends TestCase {
+public class TestAddableControllerElimination extends TestCase {
 	Application builder;
 	Model m;
 	AddableView av;
@@ -17,7 +17,7 @@ public class TestAddableControllerLightning extends TestCase {
 	
 	protected void setUp() throws Exception {
 		m = new Model();
-		m.getLevelTemplate().setGameMode(GameMode.Lightning);
+		m.getLevelTemplate().setGameMode(GameMode.Elimination);
 		builder = new Application(m);
 		builder.setVisible(true);
 		av = builder.addableView;
@@ -30,14 +30,14 @@ public class TestAddableControllerLightning extends TestCase {
 		super.tearDown();
 	}
 	
-	public void testPlaceNumberTileLightning(){
+	public void testPlaceNumberTileElimination(){
 		m.getBuilderComponents().setCurrentAddable(TileType.Number);
 		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
 		board.repaint();
 		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Number");
 	}
 	
-	public void testPlaceNullTileLightning(){
+	public void testPlaceNullTileElimination(){
 		m.getBuilderComponents().setCurrentAddable(TileType.Number);
 		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
 		board.repaint();
@@ -48,8 +48,8 @@ public class TestAddableControllerLightning extends TestCase {
 		
 		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Null");
 	}
-	
-	public void testChangeToLightningGUI() throws InterruptedException{
+
+	public void testChangeToEliminationGUI() throws InterruptedException{
 		MouseEvent me1 = new MouseEvent(Application.builderView.menu.getMntmEditLevelType(), 0, 100, 0, 0, 0, 0, false);
 		for(MouseListener ml: Application.builderView.menu.getMntmEditLevelType().getMouseListeners()){
 			ml.mouseClicked(me1);
@@ -60,13 +60,13 @@ public class TestAddableControllerLightning extends TestCase {
 		assertTrue(ltv.isVisible());
 		
 		MouseEvent me2 = new MouseEvent(ltv.getBtnRelease(), 0, 100, 0, 0, 0, 0, false);
-		for(MouseListener m2: ltv.getBtnLightning().getMouseListeners()){
+		for(MouseListener m2: ltv.getBtnElimination().getMouseListeners()){
 			m2.mousePressed(me2);
 			m2.mouseReleased(me2);
 		}
 		
 		Thread.sleep(100);
-		assertEquals(m.getLevelTemplate().getGameMode().toString(), "Lightning");
+		assertEquals(m.getLevelTemplate().getGameMode().toString(), "Elimination");
 		
 	}
 	

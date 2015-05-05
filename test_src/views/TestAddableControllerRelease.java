@@ -70,7 +70,7 @@ public class TestAddableControllerRelease extends TestCase {
 		MouseEvent me2 = new MouseEvent(ltv.getBtnRelease(), 0, 100, 0, 0, 0, 0, false);
 		for(MouseListener m2: ltv.getBtnRelease().getMouseListeners()){
 			m2.mousePressed(me2);
-			//m2.mouseReleased(me2);
+			m2.mouseReleased(me2);
 		}
 		
 		Thread.sleep(100);
