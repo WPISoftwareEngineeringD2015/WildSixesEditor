@@ -35,7 +35,7 @@ public class PreviewController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		lvlScreen = new LevelScreen(Board.MakeBoardFromTemplate(model.getLevelTemplate()), builder);
+		lvlScreen = new LevelScreen(Board.MakeBoardFromTemplate(model.getLevelTemplate(), null), builder);
 		builder.setVisible(false);
 		lvlScreen.setVisible(true);
 	}

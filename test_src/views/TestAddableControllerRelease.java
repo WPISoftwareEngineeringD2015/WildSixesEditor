@@ -1,6 +1,5 @@
 package views;
 
-import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 
 import model.Model;

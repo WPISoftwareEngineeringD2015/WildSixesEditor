@@ -23,7 +23,7 @@ public class Model {
 	public Model() {
 		this.temp = new LevelTemplate();
 		this.files = new FileIO();
-		this.board = Board.MakeBoardFromTemplate(temp);
+		this.board = Board.MakeBoardFromTemplate(temp, null);
 		this.components = new BuilderComponents();
 	}
 	
@@ -57,7 +57,7 @@ public class Model {
 	 */
 	public void setLevelTemplate(LevelTemplate newLT) {
 		this.temp = newLT;
-		this.board = Board.MakeBoardFromTemplate(temp);
+		this.board = Board.MakeBoardFromTemplate(temp, null);
 	}
 	
 	/**
