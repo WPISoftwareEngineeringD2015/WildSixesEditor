@@ -15,7 +15,7 @@ import controllers.UndoableEdits;
 public class BuilderComponents {
 	TileType currentAddable;
 	UndoableEdits lastMove;
-	UndoableEdits 
+	UndoableEdits undoneMove;
 	
 	/**
 	 * Constructor for BuilderComponents class
@@ -23,6 +23,7 @@ public class BuilderComponents {
 	public BuilderComponents() {
 		this.currentAddable = TileType.Number;
 		this.lastMove = null;
+		this.undoneMove = null;
 	}
 
 	/**
@@ -55,6 +56,22 @@ public class BuilderComponents {
 	 */
 	public void setLastMove(UndoableEdits lastMove) {
 		this.lastMove = lastMove;
+	}
+	
+	/**
+	 * get method for UndoableEdits undoneMove attribute
+	 * @return returns UndoableEdits undoneMove
+	 */
+	public UndoableEdits getUndoneMove() {
+		return this.undoneMove;
+	}
+	
+	/**
+	 * set method for UndaobleEdits undoneMove attribute
+	 * @param undoneMove value to set as the UndoableEdits undoneMove attribute
+	 */
+	public void setUndoneMove(UndoableEdits undoneMove) {
+		this.undoneMove = undoneMove;
 	}
 	
 }
