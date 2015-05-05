@@ -1,5 +1,7 @@
 package views;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 
 import model.Model;
@@ -43,6 +45,23 @@ public class TestAddableControllerPuzzle extends TestCase {
 		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
 		board.repaint();
 		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Number");
+	}
+	
+	public void testAddableViewPuzzle(){
+		MouseEvent me1 = new MouseEvent(Application.builderView.builderPanel.addableComponents.numberTile, 0, 100, 0, 0, 0, 0, false);
+		for(MouseListener ml: Application.builderView.builderPanel.addableComponents.numberTile.getMouseListeners()){
+			ml.mousePressed(me1);
+			ml.mouseReleased(me1);
+		}
+		
+		MouseEvent me2 = new MouseEvent(Application.builderView.builderPanel.board.tvs[0][0], 0, 100, 0, 0, 0, 0, false);
+		for(MouseListener m2: Application.builderView.builderPanel.board.tvs[0][0].getMouseListeners()){
+			m2.mousePressed(me2);
+			m2.mouseReleased(me2);
+		}
+		
+		
+		assertEquals(Application.builderView.builderPanel.board.tvs[0][0].tile.getType().toString(), "Number");
 	}
 	
 	
