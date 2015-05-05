@@ -3,6 +3,7 @@ package model;
 import kiviuq.entities.Board;
 import kiviuq.entities.LevelTemplate;
 
+
 /**
  * Model class for the level builder
  * Aggregate of the entity classes
