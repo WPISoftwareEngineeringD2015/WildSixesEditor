@@ -1,8 +1,6 @@
 package views;
 
 import java.awt.FlowLayout;
-import java.awt.Graphics;
-
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JPanel;

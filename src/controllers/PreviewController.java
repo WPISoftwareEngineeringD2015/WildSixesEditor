@@ -2,6 +2,7 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
 
@@ -35,7 +36,12 @@ public class PreviewController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		lvlScreen = new LevelScreen(Board.MakeBoardFromTemplate(model.getLevelTemplate(), null), builder);
+		try {
+			lvlScreen = new LevelScreen(Board.MakeBoardFromTemplate(model.getLevelTemplate(), null), builder);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		builder.setVisible(false);
 		lvlScreen.setVisible(true);
 	}
