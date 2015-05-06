@@ -23,7 +23,7 @@ public class RedoController implements ActionListener{
 	}
 	
 	/**
-	 * actionPerformed method for redo button
+	 * actionPerformed method for redo button calls redo method of undone edit if not null
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

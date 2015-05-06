@@ -100,6 +100,10 @@ public class SelectTileController implements UndoableEdits {
 		boardView.repaintTiles();
 	}
 
+	/**
+	 * get method for UndoableEdits previousMove attribute
+	 * returns previousMove
+	 */
 	@Override
 	public UndoableEdits getPreviousMove() {
 		return previousMove;

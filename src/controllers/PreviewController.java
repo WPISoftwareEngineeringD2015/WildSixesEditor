@@ -31,7 +31,7 @@ public class PreviewController implements ActionListener{
 	}
 	 
 	/**
-	 * actionPerformed method for 
+	 * actionPerformed method for PreviewController class opens playable game preview
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {

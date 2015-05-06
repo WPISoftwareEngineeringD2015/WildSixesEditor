@@ -8,7 +8,7 @@ import model.Model;
 
 
 /**
- * GetFileLocation class 
+ * GetFileLocation class handles getting files for saving and editing 
  * @author Alyssa
  *
  */
@@ -21,7 +21,9 @@ public class GetFileLocation{
 		this.dialog = new JFileChooser();
 	}
 	
-	
+	/**
+	 * getFile method for getting the file path to save or edit 
+	 */
 	public void getFile() {
 		dialog.setCurrentDirectory(new File(System.getProperty("user.home")));
 		if(dialog.showSaveDialog(dialog) == JFileChooser.APPROVE_OPTION) {

@@ -22,7 +22,13 @@ public class GameModeButtonsController implements ActionListener{
 	Model model;
 	GameMode mode;
 	
-	
+	/**
+	 * Constructor for GameModeButtonsController
+	 * @param s Select Level type frame
+	 * @param b builder panel for the level editor
+	 * @param m Model for the level editor
+	 * @param gm GameMode that was selected
+	 */
 	public GameModeButtonsController(JFrame s, JPanel b, Model m, GameMode gm) {
 		this.selectFrame = s;
 		this.builderPanel = b;
@@ -30,6 +36,9 @@ public class GameModeButtonsController implements ActionListener{
 		this.mode = gm;
 	}
 	
+	/**
+	 * Override actionPerformed methodd for GameModeButtonsController refreshes board after a level type has been selected
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		model.getLevelTemplate().setGameMode(mode);
