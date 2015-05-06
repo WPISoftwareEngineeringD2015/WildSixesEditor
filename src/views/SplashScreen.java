@@ -4,11 +4,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-/**
- * Splash screen view for level builder
- * @author Evin Ugur
- *
- */
+
 public class SplashScreen extends JFrame{
 
 	/**
@@ -19,11 +15,6 @@ public class SplashScreen extends JFrame{
 	int duration_ms;
 	JFrame nextWindow;
 	
-	/**
-	 * Constructor for SplashScreen class
-	 * @param duration_ms time for splash screen to be visible
-	 * @param nextWindow next Frame to display after splash screen
-	 */
 	public SplashScreen(int duration_ms, JFrame nextWindow) {
 		super();
 		setResizable(false);
@@ -44,9 +35,6 @@ public class SplashScreen extends JFrame{
 		getContentPane().add(lblTeamNames);
 	}
 	
-	/**
-	 * Initializes splash screen frame
-	 */
 	public void launchSplashSreen() {
 		setVisible(true);
 		try {

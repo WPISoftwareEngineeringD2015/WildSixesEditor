@@ -8,11 +8,6 @@ import javax.swing.JTextField;
 import model.Model;
 import views.BuilderPanel;
 
-/**
- * UpdateStarCriteria updates the score thresholds in the level template
- * @author Alyssa
- *
- */
 public class UpdateStarCriteria implements ActionListener{
 	Model model;
 	BuilderPanel panel;
@@ -20,11 +15,6 @@ public class UpdateStarCriteria implements ActionListener{
 	int twoStarValue;
 	int threeStarValue;
 	
-	/**
-	 * Constructor for UpdateStarCriteria class
-	 * @param m Model for level builder
-	 * @param p builder panel for level builder
-	 */
 	public UpdateStarCriteria(Model m, BuilderPanel p) {
 		this.model = m;
 		this.panel = p;
@@ -33,10 +23,6 @@ public class UpdateStarCriteria implements ActionListener{
 		this.threeStarValue = 0;
 	}
 	
-	/**
-	 * Override actionPerformed method for UpdateStarCriteria
-	 * gets the star criteria values and sets them in the level template
-	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		JTextField oneStar = panel.getScoreView().getOneStars();

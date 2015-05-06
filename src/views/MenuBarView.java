@@ -16,11 +16,7 @@ import controllers.ChangeLevelTypeController;
 import controllers.CreateNewLevelController;
 import controllers.EditLevelController;
 import controllers.SaveController;
-/**
- * MenuBarView displays a menu bar across the top of the level builder
- * @author Alyssa
- *
- */
+
 public class MenuBarView extends JPanel{
 	/**
 	 * 

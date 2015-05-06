@@ -12,21 +12,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import model.Model;
 import controllers.UpdateMultiplierConstController;
 
-/**
- * MultiplierConstView displays the slider representing the frequency of multipliers in game
- * @author Alyssa
- *
- */
 public class MultiplierConstView extends JPanel{
 	Model model;
 	BuilderPanel panel;
 	JSlider multiplierConst;
 	
-	/**
-	 * Constructor for MultiplierConstView class
-	 * @param m Model for level builder
-	 * @param p builder panel for level builder
-	 */
 	public MultiplierConstView(Model m, BuilderPanel p) {
 		this.model = m;
 		this.panel = p;
@@ -87,9 +77,7 @@ public class MultiplierConstView extends JPanel{
 	private static final long serialVersionUID = 1L;
 
 	
-	/**
-	 * Override paintComponent method for MultiplierConstView class sets slider to actual value in level builder
-	 */
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

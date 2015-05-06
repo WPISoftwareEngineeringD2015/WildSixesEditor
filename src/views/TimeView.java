@@ -14,7 +14,7 @@ import controllers.UpdateTimeLimitController;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
- * TimeView displays a JSpinner for selecting how much time allowed in Lightning mode
+ * TimeView
  * @author alyssagraham
  *
  */
