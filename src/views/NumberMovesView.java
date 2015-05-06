@@ -12,6 +12,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import model.Model;
 import controllers.UpdateMoveLimitController;
 
+/**
+ * NumberMovesView displays the JSpinner representing the number of moves available in each level
+ * @author Alyssa
+ *
+ */
 public class NumberMovesView extends JPanel{
 
 	/**
@@ -21,6 +26,10 @@ public class NumberMovesView extends JPanel{
 	Model model;
 	JSpinner moveSpinner;
 	
+	/**
+	 * Constructor for NumberMovesView class
+	 * @param m Model for level builder
+	 */
 	public NumberMovesView(Model m) {
 		this.model = m;
 		
@@ -54,7 +63,9 @@ public class NumberMovesView extends JPanel{
 		setLayout(groupLayout);
 	}
 	
-	
+	/**
+	 * Override paintComponent method for NumberMovesView sets value from level template as the value for moveSpinner
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

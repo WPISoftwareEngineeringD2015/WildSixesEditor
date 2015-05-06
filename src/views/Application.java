@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 
 import model.Model;
 
+/**
+ * Application is the main boundary class for the level builder
+ * @author Alyssa
+ *
+ */
 public class Application extends JFrame{
 	/**
 	 * 
@@ -14,12 +19,18 @@ public class Application extends JFrame{
 	BuilderPanel builderPanel;
 	AddableView addableView;
 	
-	
+	/**
+	 * Constructor for Application class
+	 * @param m Model class containing all entity class objects necessary in level builder
+	 */
 	public Application(Model m) {
 		this.model = m;
 		initialize();
 	}
 	
+	/**
+	 * Initialize method initializes level builder frame and window
+	 */
 	public void initialize() {
 		setTitle("Wild Sixes Level Builder");
 		builderView = new BuilderView(model, this);
@@ -27,6 +38,10 @@ public class Application extends JFrame{
 		setSize(900, 850);
 	}
 	
+	/**
+	 * get method for BuilderView builderView attribute
+	 * @return BuilderView builderView 
+	 */
 	public static BuilderView getBuilderView() {
 		return builderView;
 	}

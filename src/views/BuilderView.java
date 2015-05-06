@@ -10,6 +10,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import model.Model;
 
+/**
+ * BuilderView boundary class containing BuilderPanel and MenuBarView
+ * @author Alyssa
+ *
+ */
 public class BuilderView extends JPanel{
 
 	/**
@@ -21,6 +26,11 @@ public class BuilderView extends JPanel{
 	//private static Application builder;
 	MenuBarView menu;
 
+	/**
+	 * Constructor for BuilderView class
+	 * @param m Model for level builder
+	 * @param builder builder panel for level builder
+	 */
 	public BuilderView(Model m, Application builder) {
 		this.model = m;
 		//BuilderView.builder = builder;
@@ -49,16 +59,18 @@ public class BuilderView extends JPanel{
 		setLayout(groupLayout);
 	}
 	
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		
-	}
-	
+	/**
+	 * get method for BuilderPanel builderPanel attribute
+	 * @return BuilderPanel builderPanel
+	 */
 	public BuilderPanel getBuilderPanel() {
 		return builderPanel;
 	}
 	
+	/**
+	 * set method for BuilderPanel builderPanel attribute
+	 * @param newPanel new BuilderPanel to set as builderPanel attribute
+	 */
 	public void setBuilderPanel(BuilderPanel newPanel) {
 		this.builderPanel = newPanel;
 	}

@@ -8,7 +8,12 @@ import javax.swing.JPanel;
 import kiviuq.entities.Tile;
 import model.Model;
 import controllers.SelectTileController;
-
+/**
+ * BoardView
+ * @author Evin Ugur
+ * @author Alyssa
+ *
+ */
 public class BoardView extends JPanel {
 	Model model;
 	/**
@@ -18,6 +23,10 @@ public class BoardView extends JPanel {
 	
 	//Board board;
 	TileView[][] tvs;
+	/**
+	 * Constructor for BoardView class
+	 * @param m Model for level builder
+	 */
 	public BoardView(Model m) {
 		super();
 		this.model = m;
@@ -34,6 +43,9 @@ public class BoardView extends JPanel {
 		}
 	}
 	
+	/**
+	 * Override paintComponent method refreshes BoardView
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
