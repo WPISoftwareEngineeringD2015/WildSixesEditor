@@ -89,5 +89,17 @@ public class TestAddableControllerRelease extends TestCase {
 		
 		Thread.sleep(100);
 		assertEquals(m.getBuilderComponents().getCurrentAddable().toString(), "Release");
+		
+		AddableButtonsController abc2 = new AddableButtonsController(m, Application.builderView.builderPanel.addableComponents, TileType.Block);
+		Application.builderView.builderPanel.getAddableComponents().getSixTile().addMouseListener(abc2);
+		
+		MouseEvent me4 = new MouseEvent(Application.builderView.builderPanel.getAddableComponents().getSixTile(), 0, 100, 0, 0, 0, 0, false);
+		for(MouseListener m4: Application.builderView.builderPanel.getAddableComponents().getSixTile().getMouseListeners()){
+			m4.mousePressed(me4);
+			m4.mouseReleased(me4);
+		}
+		
+		Thread.sleep(100);
+		assertEquals(m.getBuilderComponents().getCurrentAddable().toString(), "Block");
 	}
 }
