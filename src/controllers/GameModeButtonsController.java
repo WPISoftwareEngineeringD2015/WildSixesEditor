@@ -9,6 +9,12 @@ import javax.swing.JPanel;
 import kiviuq.entities.GameMode;
 import model.Model;
 
+/**
+ * GameModeButtonsController changes the game's mode or level type after selecting a new level type from the level type select screen
+ * @author Alyssa
+ *
+ */
+
 public class GameModeButtonsController implements ActionListener{
 
 	JFrame selectFrame;

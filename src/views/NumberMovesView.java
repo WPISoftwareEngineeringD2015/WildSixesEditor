@@ -56,10 +56,9 @@ public class NumberMovesView extends JPanel{
 	
 	
 	@Override
-	public void paintComponents(Graphics g) {
-		super.paintComponents(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		moveSpinner.setValue(model.getLevelTemplate().getMoveLimit());
-		
 	}
 	
 	
