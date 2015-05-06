@@ -2,3 +2,5 @@ To run the levelBuilder run main.java by default a new level will open for editi
 
 Once the level is closed, you can open a "new level" for editing by going to "file -> create new level"
 
+In order to run the level builder you must have the WildSixesGame project!
+
