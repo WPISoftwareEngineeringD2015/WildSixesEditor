@@ -6,6 +6,12 @@ import javax.swing.JFileChooser;
 
 import model.Model;
 
+
+/**
+ * GetFileLocation class 
+ * @author Alyssa
+ *
+ */
 public class GetFileLocation{
 	Model model;
 	JFileChooser dialog;
@@ -18,7 +24,7 @@ public class GetFileLocation{
 	
 	public void getFile() {
 		dialog.setCurrentDirectory(new File(System.getProperty("user.home")));
-		if(dialog.showOpenDialog(dialog) == JFileChooser.APPROVE_OPTION) {
+		if(dialog.showSaveDialog(dialog) == JFileChooser.APPROVE_OPTION) {
 			File file = dialog.getSelectedFile();
 			System.out.println(file.getAbsolutePath());
 			//return file;

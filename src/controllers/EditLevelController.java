@@ -23,7 +23,7 @@ public class EditLevelController implements ActionListener {
 	}
 
 	/**
-	 * Override method for actionPerformed 
+	 * Override method for actionPerformed displays file chooser 
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
