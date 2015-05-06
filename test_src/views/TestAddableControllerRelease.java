@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 
+import controllers.AddableButtonsController;
 import model.Model;
 import junit.framework.TestCase;
 import kiviuq.entities.GameMode;
@@ -76,20 +77,17 @@ public class TestAddableControllerRelease extends TestCase {
 		Thread.sleep(100);
 		assertEquals(m.getLevelTemplate().getGameMode().toString(), "Release");
 		
-		
 		//CLICK ON RELEASE SQUARE to place
-		MouseEvent me3 = new MouseEvent(BuilderPanel.getAddableComponents(), 0, 100, 0, 0, 0, 0, false);
-		for(MouseListener m3: ltv.getBtnRelease().getMouseListeners()){
-			m2.mousePressed(me3);
-			m2.mouseReleased(me3);
+		AddableButtonsController abc = new AddableButtonsController(m, Application.builderView.builderPanel.addableComponents, TileType.Release);
+		ltv.getBtnRelease().addMouseListener(abc);
+		
+		MouseEvent me3 = new MouseEvent(Application.builderView.builderPanel.getAddableComponents().getReleaseTile(), 0, 100, 0, 0, 0, 0, false);
+		for(MouseListener m3: Application.builderView.builderPanel.getAddableComponents().getMouseListeners()){
+			m3.mousePressed(me3);
+			m3.mouseReleased(me3);
 		}
-		m.getBuilderComponents().setCurrentAddable(TileType.Release);
-		board.tvs[0][0].getTile().setType(m.getBuilderComponents().getCurrentAddable());
-		board.repaint();
-		assertEquals(board.tvs[0][0].getTile().getType().toString(), "Release");
 		
-		
-		
+		Thread.sleep(100);
+		assertEquals(m.getBuilderComponents().getCurrentAddable().toString(), "Release");
 	}
-	
 }
