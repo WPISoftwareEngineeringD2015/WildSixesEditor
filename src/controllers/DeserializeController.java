@@ -11,17 +11,29 @@ import views.Application;
 import views.BoardView;
 import views.BuilderPanel;
 import views.BuilderView;
-
+/**
+ * DeserializeController class makes the level template into a binary file
+ * @author Alyssa
+ *
+ */
 public class DeserializeController {
 	
 	Model model;
 	File inputFile;
 	
+	/**
+	 * Constructor for DeserializeController
+	 * @param m Model for level builder
+	 * @param f file location to deserialize the level template
+	 */
 	public DeserializeController(Model m, File f) {
 		this.model = m;
 		this.inputFile = f;
 	}
 	
+	/**
+	 * deserialize creates a binary file from a level template
+	 */
 	public void deserialize() {
 		LevelTemplate newLT = null;
 		

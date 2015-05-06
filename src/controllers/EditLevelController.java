@@ -6,13 +6,25 @@ import java.io.File;
 
 import model.Model;
 
+/**
+ * EditLevelController opens dialog to select a previously saved level to edit
+ * @author Alyssa
+ *
+ */
 public class EditLevelController implements ActionListener {
 	Model model;
 	
+	/**
+	 * Constructor for EditLevelController
+	 * @param m Model for level builder
+	 */
 	public EditLevelController(Model m) {
 		this.model = m;
 	}
 
+	/**
+	 * Override method for actionPerformed 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		CreateNewLevelController freshLevel = new CreateNewLevelController(model);
