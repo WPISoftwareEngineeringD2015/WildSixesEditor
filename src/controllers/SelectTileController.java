@@ -91,8 +91,9 @@ public class SelectTileController implements UndoableEdits {
 	 */
 	@Override
 	public void redo() {
+		this.previousMove = model.getBuilderComponents().getLastMove();
 		sourcePanel.getTile().setType(typeToSet);
-		model.getBuilderComponents().setLastMove(this); // set this as the last move performed in the level builder
+		//model.getBuilderComponents().setLastMove(this); // set this as the last move performed in the level builder
 		boardView.repaintTiles();
 		model.getLevelTemplate().setGrid(model.getBoard().convertGrid());
 		model.getBoard().unselectTiles();

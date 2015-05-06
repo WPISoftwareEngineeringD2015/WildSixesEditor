@@ -22,7 +22,9 @@ public class RedoController implements ActionListener{
 		this.model = m;
 	}
 	
-	
+	/**
+	 * actionPerformed method for redo button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		this.undoneMove = model.getBuilderComponents().getUndoneMove();

@@ -79,10 +79,10 @@ public class TestAddableControllerRelease extends TestCase {
 		
 		//CLICK ON RELEASE SQUARE to place
 		AddableButtonsController abc = new AddableButtonsController(m, Application.builderView.builderPanel.addableComponents, TileType.Release);
-		ltv.getBtnRelease().addMouseListener(abc);
+		Application.builderView.builderPanel.getAddableComponents().getReleaseTile().addMouseListener(abc);
 		
 		MouseEvent me3 = new MouseEvent(Application.builderView.builderPanel.getAddableComponents().getReleaseTile(), 0, 100, 0, 0, 0, 0, false);
-		for(MouseListener m3: Application.builderView.builderPanel.getAddableComponents().getMouseListeners()){
+		for(MouseListener m3: Application.builderView.builderPanel.getAddableComponents().getReleaseTile().getMouseListeners()){
 			m3.mousePressed(me3);
 			m3.mouseReleased(me3);
 		}

@@ -10,6 +10,7 @@ import kiviuq.entities.GameMode;
 import model.Model;
 import controllers.BuilderPanelClose;
 import controllers.PreviewController;
+import controllers.RedoController;
 import controllers.SaveController;
 import controllers.UndoController;
 
@@ -35,6 +36,7 @@ public class BuilderPanel extends JPanel {
 	JButton btnSave;
 	JButton btnPreview;
 	JButton btnUndo;
+	JButton btnRedo;
 	
 	/**
 	 * 
@@ -72,6 +74,12 @@ public class BuilderPanel extends JPanel {
 		add(btnUndo);
 		UndoController undoController = new UndoController(model);
 		btnUndo.addActionListener(undoController);
+		
+		btnRedo = new JButton("Redo");
+		btnRedo.setBounds(165, 600, 89, 23);
+		add(btnRedo);
+		RedoController redoController = new RedoController(model);
+		btnRedo.addActionListener(redoController);
 		
 		scores = new ScoreView(model, this);
 		scores.setBounds(569, 84, 150, 130);
@@ -134,7 +142,7 @@ public class BuilderPanel extends JPanel {
 			addableComponents.getSixTile().setVisible(false);
 			model.getBoard().scrubGrid();
 			timeView.setVisible(false);
-			numberMovesView.setVisible(false);
+			numberMovesView.setVisible(true);
 			break;
 		case Elimination:
 			addableComponents.getReleaseTile().setVisible(false);
@@ -154,7 +162,7 @@ public class BuilderPanel extends JPanel {
 			addableComponents.getReleaseTile().setVisible(true);
 			addableComponents.getSixTile().setVisible(true);
 			timeView.setVisible(false);
-			numberMovesView.setVisible(false);
+			numberMovesView.setVisible(true);
 			break;
 		
 		}
@@ -192,6 +200,10 @@ public class BuilderPanel extends JPanel {
 		return this.builder;
 	}
 	
+	/**
+	 * get method for AddableView addableComponents attribute
+	 * @return AddableView addableComponents
+	 */
 	public AddableView getAddableComponents() {
 		return this.addableComponents;
 	}
